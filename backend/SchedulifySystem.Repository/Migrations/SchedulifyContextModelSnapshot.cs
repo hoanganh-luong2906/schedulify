@@ -427,7 +427,11 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .HasMaxLength(70)
+                        .HasColumnType("character varying(70)");
+
+                    b.Property<int>("SchoolId")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("timestamp with time zone");
@@ -436,6 +440,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SchoolId");
 
                     b.ToTable("Holidays");
                 });
@@ -1064,7 +1070,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("Value")
+                    b.Property<int>("Value")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -1377,6 +1383,17 @@ namespace SchedulifySystem.Repository.Migrations
                 {
                     b.HasOne("SchedulifySystem.Repository.EntityModels.School", "School")
                         .WithMany("Departments")
+                        .HasForeignKey("SchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("School");
+                });
+
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Holiday", b =>
+                {
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.School", "School")
+                        .WithMany("Holidays")
                         .HasForeignKey("SchoolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1796,6 +1813,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("Curriculums");
 
                     b.Navigation("Departments");
+
+                    b.Navigation("Holidays");
 
                     b.Navigation("RoomTypes");
 
