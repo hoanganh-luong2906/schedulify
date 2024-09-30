@@ -46,6 +46,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsChangeDefaultPassword")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsConfirmSchoolManager")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
