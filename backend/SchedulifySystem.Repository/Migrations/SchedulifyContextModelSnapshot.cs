@@ -30,9 +30,6 @@ namespace SchedulifySystem.Repository.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AccessToken")
-                        .HasColumnType("text");
-
                     b.Property<string>("AvatarURL")
                         .HasColumnType("text");
 
@@ -49,6 +46,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsChangeDefaultPassword")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsConfirmSchoolManager")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -60,8 +60,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("integer");
+                    b.Property<string>("Phone")
+                        .HasColumnType("text");
 
                     b.Property<int>("SchoolId")
                         .HasColumnType("integer");
@@ -590,14 +590,15 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Role", (string)null);
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.RoleAssignment", b =>
@@ -614,7 +615,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
@@ -1677,9 +1678,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Department", "Department")
                         .WithMany("RoleAssignments")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Role", "Role")
                         .WithMany("RoleAssignments")
