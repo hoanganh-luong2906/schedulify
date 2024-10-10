@@ -1,8 +1,1 @@
-// const formatVNCurrency = (value: number) => {
-// 	return value.toLocaleString('vi-VN', {
-// 		style: 'currency',
-// 		currency: 'VND',
-// 	});
-// };
-
-// export { formatVNCurrency };
+// Delete this file after adding your own functions in the directory
