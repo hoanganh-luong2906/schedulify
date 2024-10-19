@@ -1150,19 +1150,25 @@ namespace SchedulifySystem.Repository.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AfternoonSlotPerWeek")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsDoublePeriod")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("IsSpecialized")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("SlotPerTerm")
+                    b.Property<int>("MoringSlotPerWeek")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SlotPerWeek")
+                    b.Property<int>("SlotPerTerm")
                         .HasColumnType("integer");
 
                     b.Property<int>("SubjectGroupId")
