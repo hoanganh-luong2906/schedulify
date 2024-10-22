@@ -1,6 +1,7 @@
 'use client';
 
 import { ICommonOption } from '@/utils/constants';
+import AddIcon from '@mui/icons-material/Add';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Menu, MenuItem, Toolbar, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -18,6 +19,7 @@ import { visuallyHidden } from '@mui/utils';
 import Image from 'next/image';
 import * as React from 'react';
 import { ISubjectTableData } from '../../_utils/contants';
+import AddSubjectModal from './subject_add_modal';
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
 	if (b[orderBy] < a[orderBy]) {
@@ -53,8 +55,8 @@ interface HeadCell {
 const headCells: readonly HeadCell[] = [
 	{
 		id: 'id' as keyof ISubjectTableData,
-		centered: true,
-		disablePadding: true,
+		centered: false,
+		disablePadding: false,
 		label: 'STT',
 	},
 	{
@@ -65,14 +67,14 @@ const headCells: readonly HeadCell[] = [
 	},
 	{
 		id: 'subjectCode' as keyof ISubjectTableData,
-		centered: true,
-		disablePadding: true,
+		centered: false,
+		disablePadding: false,
 		label: 'Mã môn',
 	},
 	{
 		id: 'subjectGroup' as keyof ISubjectTableData,
-		centered: true,
-		disablePadding: true,
+		centered: false,
+		disablePadding: false,
 		label: 'Tổ bộ môn',
 	},
 	{
@@ -130,7 +132,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 								>
 									{order === 'desc'
 										? 'sorted descending'
-										: 'sorted ascending'}
+										: 'sorted 1ascending'}
 								</Box>
 							) : null}
 						</TableSortLabel>
@@ -167,18 +169,25 @@ const SubjectTable = (props: ISubjectTableProps) => {
 		setRowsPerPage,
 		totalRows,
 	} = props;
+
 	const [order, setOrder] = React.useState<Order>('asc');
 	const [orderBy, setOrderBy] = React.useState<keyof ISubjectTableData>('id');
 	const [page, setPage] = React.useState<number>(serverPage);
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-	const open = Boolean(anchorEl);
 	const [maxCurrentPage, setMaxCurrentPage] = React.useState<number>(serverPage);
+	const [isAddModalOpen, setIsAddModalOpen] = React.useState<boolean>(false);
+	const open = Boolean(anchorEl);
 
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
 		setAnchorEl(event.currentTarget);
 	};
-	const handleMenuItemClick = (event: any, index: number) => {
+
+	const handleMenuItemClick = (event: any, id: number) => {
 		setAnchorEl(null);
+	};
+
+	const handleAddSubject = () => {
+		setIsAddModalOpen(true);
 	};
 
 	const handleRequestSort = (
@@ -229,7 +238,12 @@ const SubjectTable = (props: ISubjectTableProps) => {
 						<h2 className='text-title-medium-strong font-semibold w-full text-left'>
 							Môn học
 						</h2>
-						<Tooltip title='Filter list'>
+						<Tooltip title='Thêm Môn học'>
+							<IconButton onClick={handleAddSubject}>
+								<AddIcon />
+							</IconButton>
+						</Tooltip>
+						<Tooltip title='Lọc danh sách'>
 							<IconButton>
 								<FilterListIcon />
 							</IconButton>
@@ -266,12 +280,12 @@ const SubjectTable = (props: ISubjectTableProps) => {
 												padding='none'
 												align='center'
 											>
-												{row.id}
+												{index + 1 + page * rowsPerPage}
 											</TableCell>
 											<TableCell
 												align='left'
+												width={250}
 												sx={{
-													maxWidth: '100px` !important',
 													whiteSpace: 'nowrap',
 													overflow: 'hidden',
 													textOverflow: 'ellipsis',
@@ -279,13 +293,13 @@ const SubjectTable = (props: ISubjectTableProps) => {
 											>
 												{row.subjectName}
 											</TableCell>
-											<TableCell align='center'>
+											<TableCell align='left' width={120}>
 												{row.subjectCode}
 											</TableCell>
-											<TableCell align='center'>
+											<TableCell align='left'>
 												{row.subjectGroup}
 											</TableCell>
-											<TableCell align='center'>
+											<TableCell align='center' width={150}>
 												<h2
 													className={`font-semibold ${
 														row.subjectType === 'Bắt buộc'
@@ -337,10 +351,15 @@ const SubjectTable = (props: ISubjectTableProps) => {
 																onClick={(event: any) =>
 																	handleMenuItemClick(
 																		event,
-																		index
+																		row.id
 																	)
 																}
-																className='flex flex-row items-center'
+																className={`flex flex-row items-center ${
+																	index ===
+																		dropdownOptions.length -
+																			1 &&
+																	'hover:bg-basic-negative-hover hover:text-basic-negative'
+																}`}
 															>
 																<Image
 																	className='mr-4'
@@ -383,6 +402,7 @@ const SubjectTable = (props: ISubjectTableProps) => {
 					/>
 				</Paper>
 			</Box>
+			<AddSubjectModal open={isAddModalOpen} setOpen={setIsAddModalOpen} />
 		</div>
 	);
 };
