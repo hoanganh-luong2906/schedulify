@@ -1440,12 +1440,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("DateOfWeek")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -1458,17 +1452,11 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int?>("StartAt")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<int>("TeacherId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<int?>("WeekNumber")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
