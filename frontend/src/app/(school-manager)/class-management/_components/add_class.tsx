@@ -24,13 +24,24 @@ import { useAppContext } from "@/context/app_provider";
 import { IAddClassData, ITeacher } from "../_libs/constants";
 import useAddClass from "../_hooks/useAddClass";
 import { getTeacherName } from "../_libs/apiClass";
+import { CLASSGROUP_STRING_TYPE } from "@/utils/constants";
 
 interface AddClassFormProps {
   open: boolean;
   onClose: (close: boolean) => void;
   mutate: KeyedMutator<any>;
 }
-
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+	PaperProps: {
+		style: {
+			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+			width: 250,
+			scrollbars: 'none',
+		},
+	},
+};
 const AddClassModal = (props: AddClassFormProps) => {
   const { open, onClose, mutate } = props;
   const { schoolId, sessionToken } = useAppContext();
@@ -70,7 +81,7 @@ const AddClassModal = (props: AddClassFormProps) => {
       "main-session": "",
       "is-full-day": true,
       "period-count": "",
-      grade: "",
+      grade: '',
     },
     validationSchema: classSchema,
     onSubmit: async (formData) => {
@@ -78,11 +89,9 @@ const AddClassModal = (props: AddClassFormProps) => {
         ...formData,
         "main-session": Number(formData["main-session"]),
         "period-count": Number(formData["period-count"]),
-        grade: Number(formData.grade),
       });
     },
   });
-
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
@@ -148,24 +157,36 @@ const AddClassModal = (props: AddClassFormProps) => {
                     fullWidth
                     error={formik.touched.grade && Boolean(formik.errors.grade)}
                   >
-                    <Select
-                      variant="standard"
-                      name="grade"
-                      value={formik.values.grade}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      error={
-                        formik.touched.grade && Boolean(formik.errors.grade)
-                      }
-                    >
-                      <MenuItem value={0}>0</MenuItem>
-                      <MenuItem value={1}>1</MenuItem>
-                    </Select>
-                    {formik.touched.grade && formik.errors.grade && (
-                      <FormHelperText className="m-0">
-                        {formik.errors.grade}
-                      </FormHelperText>
-                    )}
+								<Select
+									labelId='grade-label'
+									id='grade'
+									variant='standard'
+									value={formik.values.grade}
+									onChange={(event) =>
+                    formik.setFieldValue('grade', event.target.value)
+									}
+									onBlur={formik.handleBlur('grade')}
+									error={
+										formik.touched.grade &&
+										Boolean(formik.errors.grade)
+									}
+									MenuProps={MenuProps}
+									sx={{ width: '100%' }}
+								>
+									{CLASSGROUP_STRING_TYPE.map((item) => (
+										<MenuItem
+											key={item.key}
+                      value={item.value}
+										>
+											{item.key}
+										</MenuItem>
+									))}
+								</Select>
+								{formik.touched.grade && formik.errors.grade && (
+									<FormHelperText error variant='standard'>
+										{formik.errors.grade}
+									</FormHelperText>
+								)}
                   </FormControl>
                 </Grid>
               </Grid>
