@@ -1,6 +1,5 @@
 import useSWR from 'swr';
 import { getFetchSubjectGroupDetailApi } from '../_libs/apis';
-import { IFetchSubjectGroupBodyProps } from '../_libs/constants';
 
 interface IFetchSubjectGroupDetailProps {
 	sessionToken: string;
