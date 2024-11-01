@@ -106,16 +106,16 @@ const AddRoomModal = (props: AddRoomFormProps) => {
     onSubmit: async (formData) => {
       handleFormSubmit({
         ...formData,
-        "room-type":
-          formData["room-type"] as ERoomType
-            ? "PRACTICE_ROOM"
-            : "LECTURE_ROOM",
+        "room-type": (formData["room-type"] as ERoomType)
+          ? "PRACTICE_ROOM"
+          : "LECTURE_ROOM",
         "subjects-abreviation": Array.isArray(formData["subjects-abreviation"])
           ? formData["subjects-abreviation"]
           : [formData["subjects-abreviation"]],
         "max-class-per-time": parseInt(formData["max-class-per-time"]),
       });
-    },  });
+    },
+  });
 
   console.log("Value:", formik.values);
   console.log("isValid:", formik.isValid);
