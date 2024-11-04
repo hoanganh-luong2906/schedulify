@@ -1,5 +1,4 @@
 import ContainedButton from '@/commons/button-contained';
-import { useAppContext } from '@/context/app_provider';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, IconButton, Modal, Typography } from '@mui/material';
 
