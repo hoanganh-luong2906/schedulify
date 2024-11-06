@@ -946,6 +946,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsRequired")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("SchoolYearId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("SlotSpecialized")
                         .HasColumnType("integer");
 
@@ -963,6 +966,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SchoolYearId");
 
                     b.ToTable("Subjects");
                 });
@@ -1077,16 +1082,10 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsSpecialized")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("MainMinimumCouple")
-                        .HasColumnType("integer");
-
                     b.Property<int>("MainSlotPerWeek")
                         .HasColumnType("integer");
 
                     b.Property<int>("SlotPerTerm")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SubMinimumCouple")
                         .HasColumnType("integer");
 
                     b.Property<int>("SubSlotPerWeek")
@@ -1096,6 +1095,9 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("integer");
 
                     b.Property<int>("SubjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SubjectInGroupType")
                         .HasColumnType("integer");
 
                     b.Property<int?>("TermId")
@@ -1395,8 +1397,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<int>("EndWeek")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
@@ -1406,21 +1408,16 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<int>("SchoolId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("SchoolYearId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<int>("StartWeek")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SchoolId");
 
                     b.HasIndex("SchoolYearId");
 
@@ -1758,6 +1755,17 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("Teacher");
                 });
 
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Subject", b =>
+                {
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.SchoolYear", "SchoolYear")
+                        .WithMany("Subjects")
+                        .HasForeignKey("SchoolYearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SchoolYear");
+                });
+
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectConfig", b =>
                 {
                     b.HasOne("SchedulifySystem.Repository.EntityModels.ConfigAttribute", "ConfigAttribute")
@@ -1956,19 +1964,11 @@ namespace SchedulifySystem.Repository.Migrations
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Term", b =>
                 {
-                    b.HasOne("SchedulifySystem.Repository.EntityModels.School", "School")
-                        .WithMany("Terms")
-                        .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SchedulifySystem.Repository.EntityModels.SchoolYear", "SchoolYear")
                         .WithMany("Terms")
                         .HasForeignKey("SchoolYearId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("School");
 
                     b.Navigation("SchoolYear");
                 });
@@ -2061,8 +2061,6 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Navigation("Teachers");
 
-                    b.Navigation("Terms");
-
                     b.Navigation("TimeSlots");
                 });
 
@@ -2084,6 +2082,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("StudentClasses");
 
                     b.Navigation("SubjectGroups");
+
+                    b.Navigation("Subjects");
 
                     b.Navigation("Terms");
                 });
