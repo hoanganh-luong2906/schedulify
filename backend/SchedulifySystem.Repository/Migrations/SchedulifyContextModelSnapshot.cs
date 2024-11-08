@@ -1082,10 +1082,16 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsSpecialized")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("MainMinimumCouple")
+                        .HasColumnType("integer");
+
                     b.Property<int>("MainSlotPerWeek")
                         .HasColumnType("integer");
 
                     b.Property<int>("SlotPerTerm")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SubMinimumCouple")
                         .HasColumnType("integer");
 
                     b.Property<int>("SubSlotPerWeek")
