@@ -22,7 +22,7 @@ const useUpdateDepartment = async (props: IUpdateSubjectProps) => {
 				Authorization: `Bearer ${sessionToken}`,
 				'Content-Type': 'application/json',
 			},
-			method: 'PUT',
+			method: 'PATCH',
 			body: JSON.stringify({
 				...formData,
 			}),
