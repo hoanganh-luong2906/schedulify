@@ -396,9 +396,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("SlotPerTerm")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("StudentClassGroupId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("SubMinimumCouple")
                         .HasColumnType("integer");
 
@@ -421,13 +418,11 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("CurriculumId");
 
-                    b.HasIndex("StudentClassGroupId");
-
                     b.HasIndex("SubjectId");
 
                     b.HasIndex("TermId");
 
-                    b.ToTable("SubjectInGroups");
+                    b.ToTable("CurriculumDetail", (string)null);
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Department", b =>
@@ -963,7 +958,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("SchoolYearId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("SubjectGroupId")
+                    b.Property<int?>("StudentClassGroupId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -979,7 +974,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolYearId");
 
-                    b.HasIndex("SubjectGroupId");
+                    b.HasIndex("StudentClassGroupId");
 
                     b.ToTable("StudentClasses");
                 });
@@ -1031,7 +1026,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolYearId");
 
-                    b.ToTable("SubjectGroups");
+                    b.ToTable("StudentClassGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.StudentClassRoomSubject", b =>
@@ -1637,10 +1632,6 @@ namespace SchedulifySystem.Repository.Migrations
                         .WithMany("CurriculumDetails")
                         .HasForeignKey("CurriculumId");
 
-                    b.HasOne("SchedulifySystem.Repository.EntityModels.StudentClassGroup", null)
-                        .WithMany("SubjectInGroups")
-                        .HasForeignKey("StudentClassGroupId");
-
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Subject", "Subject")
                         .WithMany("CurriculumDetails")
                         .HasForeignKey("SubjectId")
@@ -1840,7 +1831,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.StudentClassGroup", "StudentClassGroup")
                         .WithMany("StudentClasses")
-                        .HasForeignKey("SubjectGroupId");
+                        .HasForeignKey("StudentClassGroupId");
 
                     b.Navigation("Room");
 
@@ -2224,8 +2215,6 @@ namespace SchedulifySystem.Repository.Migrations
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.StudentClassGroup", b =>
                 {
                     b.Navigation("StudentClasses");
-
-                    b.Navigation("SubjectInGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.StudentClassRoomSubject", b =>
