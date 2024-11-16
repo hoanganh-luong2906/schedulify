@@ -949,7 +949,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("PeriodCount")
                         .HasColumnType("integer");
 
-                    b.Property<int>("RoomId")
+                    b.Property<int?>("RoomId")
                         .HasColumnType("integer");
 
                     b.Property<int>("SchoolId")
@@ -1085,6 +1085,9 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<bool>("IsRequired")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsTeachedByHomeroomTeacher")
                         .HasColumnType("boolean");
 
                     b.Property<int>("SchoolYearId")
@@ -1332,7 +1335,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("StudentClassId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("StudentClassRoomSubjectId")
+                    b.Property<int?>("StudentClassRoomSubjectId")
                         .HasColumnType("integer");
 
                     b.Property<int>("SubjectId")
@@ -1813,9 +1816,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Room", "Room")
                         .WithMany("StudentClasses")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoomId");
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.School", "School")
                         .WithMany("StudentClasses")
@@ -1990,8 +1991,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.HasOne("SchedulifySystem.Repository.EntityModels.StudentClassRoomSubject", "StudentClassRoomSubject")
                         .WithMany("TeacherAssignments")
                         .HasForeignKey("StudentClassRoomSubjectId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Subject", "Subject")
                         .WithMany("TeacherAssignments")
