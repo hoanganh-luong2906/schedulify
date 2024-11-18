@@ -1,7 +1,7 @@
 import useNotify from '@/hooks/useNotify';
 import { TRANSLATOR } from '@/utils/dictionary';
 import { mutate } from 'swr';
-import { getUpdateLessonApi } from '../_libs/apis';
+import { getUpdateCurriculumDetailsApi } from '../_libs/apis';
 import { IUpdateSubjectInGroupRequest } from '../_libs/constants';
 
 interface IUpdateSubjectProps {
@@ -13,9 +13,14 @@ interface IUpdateSubjectProps {
 	formData: IUpdateSubjectInGroupRequest[];
 }
 
-const useUpdateLesson = async (props: IUpdateSubjectProps) => {
+const useUpdateCurriculumDetails = async (props: IUpdateSubjectProps) => {
 	const { formData, sessionToken, schoolId, schoolYearId, subjectGroupId, termId } = props;
-	const endpoint = getUpdateLessonApi({ schoolId, schoolYearId, subjectGroupId, termId });
+	const endpoint = getUpdateCurriculumDetailsApi({
+		schoolId,
+		schoolYearId,
+		subjectGroupId,
+		termId,
+	});
 	let response;
 
 	async function updateSubject(url: string) {
@@ -52,4 +57,4 @@ const useUpdateLesson = async (props: IUpdateSubjectProps) => {
 	}
 };
 
-export default useUpdateLesson;
+export default useUpdateCurriculumDetails;
