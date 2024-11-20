@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -17,9 +17,10 @@ import { useFormik } from "formik";
 import { classGroupSchema } from "../_libs/class_group_schema";
 import { KeyedMutator } from "swr";
 import { useAppContext } from "@/context/app_provider";
-import { IAddClassGroup } from "../_libs/constants";
+import { IAddClassGroup, IExistingClassGroup } from "../_libs/constants";
 import useAddClassGroup from "../_hooks/useAddClassGroup";
 import { CLASSGROUP_STRING_TYPE, CLASSGROUP_TRANSLATOR } from "@/utils/constants";
+import { getExistingClassGroup } from "../_libs/apiClassGroup";
 
 interface AddClassGroupFormProps {
   open: boolean;
@@ -42,6 +43,7 @@ const MenuProps = {
 const AddClassGroupModal = (props: AddClassGroupFormProps) => {
   const { open, onClose, mutate } = props;
   const { schoolId, sessionToken, selectedSchoolYearId } = useAppContext();
+  const [existClassGroup, setExistClassGroup] = React.useState<IExistingClassGroup[]>([]);
 
   const handleFormSubmit = async (body: IAddClassGroup) => {
     await useAddClassGroup({
@@ -59,6 +61,24 @@ const AddClassGroupModal = (props: AddClassGroupFormProps) => {
     onClose(false);
   };
 
+  useEffect(() => {
+    const loadExistClassGroup = async () => {
+      try {
+        const response = await getExistingClassGroup (
+          schoolId,
+          selectedSchoolYearId,
+          sessionToken
+        );
+        if (response.status === 200) {
+          setExistClassGroup(response.result.items);
+        }
+      } catch (error) {
+        console.error("Failed to load existing classes:", error);
+      }
+    }
+    loadExistClassGroup();
+  }, [schoolId, selectedSchoolYearId, sessionToken])
+
   const formik = useFormik({
     initialValues: {
       "group-name": "",
@@ -66,7 +86,7 @@ const AddClassGroupModal = (props: AddClassGroupFormProps) => {
       "student-class-group-code": "",
       grade: "",
     },
-    validationSchema: classGroupSchema,
+    validationSchema: classGroupSchema(existClassGroup),
     onSubmit: async (values) => {
       const formData: IAddClassGroup = {
         "group-name": values["group-name"],
