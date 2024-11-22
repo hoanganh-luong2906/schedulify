@@ -337,6 +337,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("CurriculumCode")
+                        .HasColumnType("text");
+
                     b.Property<string>("CurriculumName")
                         .HasColumnType("text");
 
