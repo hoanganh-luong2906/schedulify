@@ -752,6 +752,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int?>("SchoolId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("Session")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("SubjectId")
                         .HasColumnType("integer");
 
