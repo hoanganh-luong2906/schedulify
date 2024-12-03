@@ -899,9 +899,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("StartWeek")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("SubjectId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("TermId")
                         .HasColumnType("integer");
 
@@ -913,8 +910,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.HasIndex("SchoolId");
 
                     b.HasIndex("SchoolYearId");
-
-                    b.HasIndex("SubjectId");
 
                     b.HasIndex("TermId");
 
@@ -1844,10 +1839,6 @@ namespace SchedulifySystem.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SchedulifySystem.Repository.EntityModels.Subject", null)
-                        .WithMany("SchoolSchedules")
-                        .HasForeignKey("SubjectId");
-
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Term", "Term")
                         .WithMany("SchoolSchedules")
                         .HasForeignKey("TermId")
@@ -2283,8 +2274,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("CurriculumDetails");
 
                     b.Navigation("RoomSubjects");
-
-                    b.Navigation("SchoolSchedules");
 
                     b.Navigation("SubjectConfigs");
 
