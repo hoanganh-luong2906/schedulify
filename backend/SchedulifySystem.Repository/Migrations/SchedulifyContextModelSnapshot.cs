@@ -1205,16 +1205,22 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("ProcessNote")
+                        .HasColumnType("text");
+
+                    b.Property<string>("RequestDescription")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("RequestTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("RequestType")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("SchoolYearId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Status")
@@ -1227,6 +1233,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SchoolYearId");
 
                     b.HasIndex("TeacherId");
 
@@ -1979,11 +1987,17 @@ namespace SchedulifySystem.Repository.Migrations
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubmitRequest", b =>
                 {
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.SchoolYear", "SchoolYear")
+                        .WithMany("SubmitRequests")
+                        .HasForeignKey("SchoolYearId");
+
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Teacher", "Teacher")
                         .WithMany("SubmitRequests")
                         .HasForeignKey("TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("SchoolYear");
 
                     b.Navigation("Teacher");
                 });
@@ -2247,6 +2261,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("StudentClasses");
 
                     b.Navigation("Subjects");
+
+                    b.Navigation("SubmitRequests");
 
                     b.Navigation("Terms");
                 });
