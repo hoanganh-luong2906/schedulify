@@ -181,8 +181,6 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.HasIndex("TeacherAssignmentId");
-
                     b.HasIndex("TeacherId");
 
                     b.ToTable("ClassPeriod", (string)null);
@@ -522,7 +520,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("Week")
+                    b.Property<int>("Week")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -1389,11 +1387,6 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SchedulifySystem.Repository.EntityModels.TeacherAssignment", "TeacherAssignment")
-                        .WithMany("ClassPeriods")
-                        .HasForeignKey("TeacherAssignmentId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Teacher", "Teacher")
                         .WithMany("ClassPeriods")
                         .HasForeignKey("TeacherId")
@@ -1406,8 +1399,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("Subject");
 
                     b.Navigation("Teacher");
-
-                    b.Navigation("TeacherAssignment");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.ClassSchedule", b =>
@@ -1990,11 +1981,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("TeacherAssignments");
 
                     b.Navigation("TeacherUnavailabilities");
-                });
-
-            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeacherAssignment", b =>
-                {
-                    b.Navigation("ClassPeriods");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Term", b =>
