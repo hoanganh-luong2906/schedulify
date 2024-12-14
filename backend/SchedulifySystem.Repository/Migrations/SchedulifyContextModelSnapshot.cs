@@ -164,9 +164,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<string>("TeacherAbbreviation")
                         .HasColumnType("text");
 
-                    b.Property<int?>("TeacherAssignmentId")
-                        .HasColumnType("integer");
-
                     b.Property<int?>("TeacherId")
                         .HasColumnType("integer");
 
