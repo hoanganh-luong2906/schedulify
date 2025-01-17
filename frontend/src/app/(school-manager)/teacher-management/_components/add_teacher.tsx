@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Dialog,
-  DialogActions,
   DialogContent,
-  DialogTitle,
   TextField,
   Radio,
   RadioGroup,
@@ -12,18 +10,23 @@ import {
   FormControl,
   Grid,
   Typography,
-  InputLabel,
   Select,
   MenuItem,
+  IconButton,
 } from "@mui/material";
 import { useFormik } from "formik";
 import { teacherSchema } from "../_libs/teacher_schema";
 import dayjs from "dayjs";
+import CloseIcon from "@mui/icons-material/Close";
+import ContainedButton from "@/commons/button-contained";
+
+//Add new teacher form
 
 interface AddTeacherFormProps {
   open: boolean;
   onClose: () => void;
   onSubmit: (teacherData: TeacherFormData) => void;
+  initialValues?: TeacherFormData | null;
 }
 
 export interface TeacherFormData {
@@ -43,21 +46,23 @@ const AddTeacherForm: React.FC<AddTeacherFormProps> = ({
   open,
   onClose,
   onSubmit,
+  initialValues,
 }) => {
   const formik = useFormik({
-    initialValues: {
+    initialValues: initialValues || {
       firstName: "",
       lastName: "",
       abbreviation: "",
       email: "",
-      gender: "Male", // Set default to "Male"
+      gender: "Male",
       departmentCode: "",
       dateOfBirth: "",
-      teacherRole: "Role1", // Set default to "Role1"
-      status: "Active", // Set default to "Active"
+      teacherRole: "Role1",
+      status: "Active",
       phone: "",
     },
     validationSchema: teacherSchema,
+    enableReinitialize: true,
     onSubmit: (values) => {
       const formattedValues = {
         ...values,
@@ -70,10 +75,15 @@ const AddTeacherForm: React.FC<AddTeacherFormProps> = ({
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle>Thêm Giáo viên</DialogTitle>
+      <div
+        id="modal-header"
+        className="w-full h-fit flex flex-row justify-between items-center bg-primary-50 p-3"
+      >
+        {initialValues ? "Chỉnh sửa giáo viên" : "Thêm giáo viên"}
+      </div>
       <form onSubmit={formik.handleSubmit}>
         <DialogContent>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <Grid container spacing={2}>
                 <Grid
@@ -244,7 +254,7 @@ const AddTeacherForm: React.FC<AddTeacherFormProps> = ({
                       formik.touched.departmentCode &&
                       Boolean(formik.errors.departmentCode)
                     }
-                    helperText={               
+                    helperText={
                       formik.touched.departmentCode &&
                       formik.errors.departmentCode
                     }
@@ -255,7 +265,11 @@ const AddTeacherForm: React.FC<AddTeacherFormProps> = ({
 
             <Grid item xs={12}>
               <Grid container spacing={2}>
-                <Grid item xs={3} sx={{ display: "flex", alignItems: "center" }}>
+                <Grid
+                  item
+                  xs={3}
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Ngày sinh
                   </Typography>
@@ -270,8 +284,13 @@ const AddTeacherForm: React.FC<AddTeacherFormProps> = ({
                     value={formik.values.dateOfBirth}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    error={formik.touched.dateOfBirth && Boolean(formik.errors.dateOfBirth)}
-                    helperText={formik.touched.dateOfBirth && formik.errors.dateOfBirth}
+                    error={
+                      formik.touched.dateOfBirth &&
+                      Boolean(formik.errors.dateOfBirth)
+                    }
+                    helperText={
+                      formik.touched.dateOfBirth && formik.errors.dateOfBirth
+                    }
                   />
                 </Grid>
               </Grid>
@@ -363,14 +382,21 @@ const AddTeacherForm: React.FC<AddTeacherFormProps> = ({
             </Grid>
           </Grid>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={onClose} color="primary">
-            Hủy
-          </Button>
-          <Button type="submit" color="primary" variant="contained">
-            Tạo mới
-          </Button>
-        </DialogActions>
+        <div className="w-full flex flex-row justify-end items-center gap-2 bg-basic-gray-hover p-3">
+          <ContainedButton
+            title="Thêm giáo viên"
+            disableRipple
+            type="submit"
+            disabled={!formik.isValid}
+            styles="bg-primary-300 text-white !py-1 px-4"
+          />
+          <ContainedButton
+            title="Huỷ"
+            onClick={onClose}
+            disableRipple
+            styles="bg-basic-gray-active text-basic-gray !py-1 px-4"
+          />
+        </div>
       </form>
     </Dialog>
   );
