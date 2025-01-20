@@ -755,6 +755,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int?>("Session")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("SlotPerWeek")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("SubjectId")
                         .HasColumnType("integer");
 
