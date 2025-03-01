@@ -502,6 +502,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<bool?>("IsChangeForever")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -517,7 +520,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Week")
+                    b.Property<int?>("Week")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
