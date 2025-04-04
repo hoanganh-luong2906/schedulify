@@ -1,4 +1,3 @@
-import useNotify from '@/hooks/useNotify';
 import useSWR from 'swr';
 
 interface IFetcherProps {
