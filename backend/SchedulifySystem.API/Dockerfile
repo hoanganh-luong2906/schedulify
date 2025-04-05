@@ -1,7 +1,7 @@
 # See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 USER app
 WORKDIR /app
 EXPOSE 8080
@@ -9,7 +9,7 @@ EXPOSE 8080
 
 
 # This stage is used to build the service project
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["SchedulifySystem.API/SchedulifySystem.API.csproj", "SchedulifySystem.API/"]
@@ -28,7 +28,7 @@ RUN dotnet publish "./SchedulifySystem.API.csproj" -c $BUILD_CONFIGURATION -o /a
 # One-off EF Core migration runner (docker compose run --rm migrate); not the default target
 FROM build AS migrate
 ENV PATH="$PATH:/root/.dotnet/tools"
-RUN dotnet tool install --global dotnet-ef --version 8.*
+RUN dotnet tool install --global dotnet-ef --version 10.*
 WORKDIR /src
 ENTRYPOINT ["dotnet", "ef", "database", "update", "--project", "SchedulifySystem.Repository", "--startup-project", "SchedulifySystem.API"]
 
