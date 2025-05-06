@@ -184,7 +184,7 @@ const ExportDialog: React.FC<ExportDialogProps> = ({
           title="Huỷ"
           onClick={onClose}
           disableRipple
-          styles="!bg-basic-gray-active !text-basic-gray !py-1 px-4"
+          styles="bg-basic-gray-active! text-basic-gray! !py-1 px-4"
         />
       </div>
     </Dialog>

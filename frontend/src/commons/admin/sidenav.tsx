@@ -114,7 +114,7 @@ const AdminSidenav = () => {
 								/>
 								<p
 									className={`text-body-medium font-normal select-none ${
-										currentPath.startsWith(subItem.url) ? ' !font-semibold' : ''
+										currentPath.startsWith(subItem.url) ? ' font-semibold!' : ''
 									}`}
 								>
 									{subItem.name}

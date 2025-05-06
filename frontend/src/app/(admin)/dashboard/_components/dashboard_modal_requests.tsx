@@ -135,7 +135,7 @@ const DashboardRequestModal = (props: IDashboardRequestModalProps) => {
 						title='Từ chối'
 						disableRipple
 						onClick={() => setIsRejectConfirmOpen(true)}
-						styles='!bg-basic-negative !text-white !py-1 px-3'
+						styles='bg-basic-negative! !text-white !py-1 px-3'
 					/>
 					<ContainedButton
 						title='xác nhận'

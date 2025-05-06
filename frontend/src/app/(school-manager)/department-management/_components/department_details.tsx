@@ -57,7 +57,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 
 	return (
 		<div
-			className={`h-[100vh] flex flex-col justify-start items-center pb-[5vh] border-l-2 border-basic-gray-active overflow-y-scroll no-scrollbar transition-all duration-300 ease-in-out transform
+			className={`h-screen flex flex-col justify-start items-center pb-[5vh] border-l-2 border-basic-gray-active overflow-y-scroll no-scrollbar transition-all duration-300 ease-in-out transform
     ${open ? ' w-[30%] translate-x-0 opacity-100' : ' w-0 translate-x-full opacity-0'}`}
 		>
 			<div className='w-full bg-white sticky top-0 left-0 pt-[2vh]'>
@@ -72,7 +72,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 						<Tooltip title='Chỉnh sửa thông tin bộ môn'>
 							<IconButton
 								onClick={handleUpdateDepartment}
-								className='translate-y-[1px] opacity-80'
+								className='translate-y-px opacity-80'
 							>
 								<Image
 									src='/images/icons/compose.png'
@@ -97,7 +97,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 						<h2 className='text-body-large-strong'>{departmentData?.name}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -112,7 +112,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 						</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -133,7 +133,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 						)
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -155,7 +155,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 							{[1, 2, 3, 4].map((item) => (
 								<li key={item}>
 									<Skeleton
-										className='!text-body-large-strong'
+										className='text-body-large-strong!'
 										animation='wave'
 										variant='text'
 										sx={{ width: '80%' }}
@@ -176,7 +176,7 @@ const DepartmentDetails = (props: IDepartmentDetailsProps) => {
 						<h2 className='text-body-large-strong'>{departmentData?.description}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}

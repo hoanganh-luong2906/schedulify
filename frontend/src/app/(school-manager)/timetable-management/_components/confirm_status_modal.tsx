@@ -409,7 +409,7 @@ const ConfirmStatusModal = (props: ConfirmStatusModalProps) => {
             title="Huỷ"
             onClick={handleClose}
             disableRipple
-            styles="!bg-basic-gray-active !text-basic-gray !py-1 px-4"
+            styles="bg-basic-gray-active! text-basic-gray! !py-1 px-4"
           />
           <ContainedButton
             title="Xác nhận"
@@ -417,7 +417,7 @@ const ConfirmStatusModal = (props: ConfirmStatusModalProps) => {
             onClick={() =>
               onConfirm(selectedTermId, selectedStartWeek, selectedEndWeek)
             }
-            styles="!bg-primary-300 text-white !py-1 px-4"
+            styles="bg-primary-300! text-white !py-1 px-4"
           />
         </div>
       </Box>

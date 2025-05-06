@@ -43,7 +43,7 @@ const LandingConstraints = () => {
 					<div className='w-fit h-fit flex flex-row justify-start gap-1 border-b-2 border-primary-500'>
 						<Link
 							href={'#'}
-							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 						>
 							Xem tất cả
 							<svg
@@ -104,7 +104,7 @@ const LandingConstraints = () => {
 					<div className='w-fit h-fit flex flex-row justify-start gap-1 border-b-2 border-primary-500'>
 						<Link
 							href={'#'}
-							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 						>
 							Xem tất cả
 							<svg
@@ -165,7 +165,7 @@ const LandingConstraints = () => {
 					<div className='w-fit h-fit flex flex-row justify-start gap-1 border-b-2 border-primary-500'>
 						<Link
 							href={'#'}
-							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 						>
 							Xem tất cả
 							<svg
@@ -227,7 +227,7 @@ const LandingConstraints = () => {
 					<div className='w-fit h-fit flex flex-row justify-start gap-1 border-b-2 border-primary-500'>
 						<Link
 							href={'#'}
-							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 						>
 							Xem tất cả
 							<svg
@@ -289,7 +289,7 @@ const LandingConstraints = () => {
 					<div className='w-fit h-fit flex flex-row justify-start gap-1 border-b-2 border-primary-500'>
 						<Link
 							href={'#'}
-							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+							className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 						>
 							Xem tất cả
 							<svg

@@ -24,7 +24,7 @@ const LandingPros = () => {
 			<div className='w-full md:w-[20%] h-full flex flex-col justify-start items-center md:items-start gap-2'>
 				<div className='w-fit h-fit p-3 mb-3 bg-white rounded-[50%] border-1 border-secondary-darker overflow-hidden'>
 					<Image
-						className='-translate-y-[2px]'
+						className='translate-y-[-2px]'
 						src={'/images/icons/school-landing.png'}
 						alt='book-stack'
 						width={30}
@@ -62,7 +62,7 @@ const LandingPros = () => {
 			<div className='w-full md:w-[20%] h-full flex flex-col justify-start items-center md:items-start gap-2'>
 				<div className='w-fit h-fit p-3 mb-3 bg-white rounded-[50%] border-1 border-secondary-darker'>
 					<Image
-						className='-translate-y-[2px]'
+						className='translate-y-[-2px]'
 						src={'/images/icons/support.png'}
 						alt='book-stack'
 						width={30}

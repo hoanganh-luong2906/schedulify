@@ -166,7 +166,7 @@ const AssignClassModal = ({ open, onClose, classGroupId, mutate, grade }: Assign
           <ContainedButton
             title="Huỷ"
             onClick={onClose}
-            styles="!bg-basic-gray-active !text-basic-gray !py-1 px-4"
+            styles="bg-basic-gray-active! text-basic-gray! !py-1 px-4"
           />
         </div>
       </form>

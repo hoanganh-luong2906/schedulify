@@ -210,7 +210,7 @@ const DetailsSolution: React.FC<IDetailsSolutionProps> = (props) => {
 														fontWeight: 'bold',
 													}}
 													className={`${
-														sessionIndex < 2 ? '!text-primary-400' : '!text-tertiary-normal'
+														sessionIndex < 2 ? 'text-primary-400!' : 'text-tertiary-normal!'
 													}`}
 												>
 													{sessionIndex * 5 + slotIndex + 1}

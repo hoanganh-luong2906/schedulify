@@ -226,7 +226,7 @@ export default function RoomTimetableTable({
           <Button
             variant="contained"
             size="medium"
-            className="!bg-primary-500 !hover:bg-primary-600 text-white px-8 py-3 rounded-s 
+            className="bg-primary-500! !hover:bg-primary-600 text-white px-8 py-3 rounded-s 
                      transform transition-all duration-300 hover:scale-105 hover:shadow-lg
                      flex items-center gap-2"
             onClick={() => router.push(`/timetable-generation`)}

@@ -328,7 +328,7 @@ export default function PublishTimetableTable({
 					<Button
 						variant='contained'
 						size='medium'
-						className='!bg-primary-500 !hover:bg-primary-600 text-white px-8 py-3 rounded-s 
+						className='bg-primary-500! !hover:bg-primary-600 text-white px-8 py-3 rounded-s 
                transform transition-all duration-300 hover:scale-105 hover:shadow-lg
                flex items-center gap-2'
 						onClick={() => router.push(`/timetable-generation`)}
@@ -397,7 +397,7 @@ export default function PublishTimetableTable({
 														fontWeight: 'bold',
 													}}
 													className={`${
-														slotIndex < 5 ? '!text-primary-400' : '!text-tertiary-normal'
+														slotIndex < 5 ? 'text-primary-400!' : 'text-tertiary-normal!'
 													}`}
 												>
 													{slot}
@@ -460,7 +460,7 @@ export default function PublishTimetableTable({
 																				<p className='text-ellipsis text-nowrap overflow-hidden '>
 																					{period.teacherName}
 																				</p>
-																				<div className='absolute top-0 right-0 -translate-y-[50%] translate-x-[10%] bg-tertiary-normal w-[20%] h-[130%] flex flex-row justify-center items-center -rotate-[50deg]'></div>
+																				<div className='absolute top-0 right-0 translate-y-[-50%] translate-x-[10%] bg-tertiary-normal w-[20%] h-[130%] flex flex-row justify-center items-center rotate-[-50deg]'></div>
 																			</div>
 																		</LightTooltip>
 																	)}

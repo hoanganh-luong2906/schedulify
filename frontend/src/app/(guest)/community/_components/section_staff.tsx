@@ -9,7 +9,7 @@ const StaffSection = () => {
 			</div>
 
 			<div className='container'>
-				<div className='!w-screen flex flex-wrap md:flex-row gap-[2vh] md:gap-0 justify-evenly px-[1vw]'>
+				<div className='w-screen! flex flex-wrap md:flex-row gap-[2vh] md:gap-0 justify-evenly px-[1vw]'>
 					{/* Staff 1 */}
 					<div className='text-center'>
 						<div className='w-40 h-40 rounded-full bg-gray-300 mb-4 mx-auto'></div>

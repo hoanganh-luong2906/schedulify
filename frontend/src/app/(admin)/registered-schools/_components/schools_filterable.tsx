@@ -60,7 +60,7 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 				<FormControl fullWidth variant='filled' sx={{ m: 1, minWidth: 120 }}>
 					<InputLabel
 						id='demo-simple-select-filled-label'
-						className='!text-body-xlarge font-normal'
+						className='text-body-xlarge! font-normal'
 					>
 						Trạng thái trường học
 					</InputLabel>
@@ -81,7 +81,7 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 				<FormControl fullWidth variant='filled' sx={{ m: 1, minWidth: 120, maxHeight: 500 }}>
 					<InputLabel
 						id='demo-simple-select-filled-label'
-						className='!text-body-xlarge font-normal'
+						className='text-body-xlarge! font-normal'
 					>
 						Chọn tỉnh
 					</InputLabel>
@@ -115,7 +115,7 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 				<FormControl fullWidth variant='filled' sx={{ m: 1, minWidth: 120, maxHeight: 500 }}>
 					<InputLabel
 						id='demo-simple-select-filled-label'
-						className='!text-body-xlarge font-normal'
+						className='text-body-xlarge! font-normal'
 					>
 						Chọn quận/huyện
 					</InputLabel>

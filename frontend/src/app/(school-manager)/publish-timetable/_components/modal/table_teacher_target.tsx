@@ -129,8 +129,8 @@ const TeacherTargetTable = (props: ITeacherSelectTableProps) => {
 							)}
 							<TableCell
 								align='center'
-								className={`!font-semibold ${
-									slot + session * 5 <= 5 ? '!text-primary-400' : '!text-tertiary-normal'
+								className={`font-semibold! ${
+									slot + session * 5 <= 5 ? 'text-primary-400!' : 'text-tertiary-normal!'
 								}`}
 								sx={{ m: 0, p: 0, maxWidth: 10 }}
 							>

@@ -28,8 +28,8 @@ const LandingSchools = () => {
 					<h4 className='text-[2rem] md:text-title-small font-semibold opacity-70 mb-[1vh] md:mb-[5vh]'>
 						Đối tác của chúng tôi
 					</h4>
-					<h1 className='text-[1.7rem] md:text-title-1.5xl'>Những trường học</h1>
-					<h1 className='text-[1.7rem] md:text-title-1.5xl'>Đang sử dụng</h1>
+					<h1 className='text-[1.7rem] md:text-title-1_5xl'>Những trường học</h1>
+					<h1 className='text-[1.7rem] md:text-title-1_5xl'>Đang sử dụng</h1>
 				</div>
 				<div className='w-full md:w-[70%] h-full flex flex-row justify-start items-start'>
 					<div className='w-[95%] h-full flex flex-col md:flex-row justify-start items-start gap-5 overflow-hidden'>
@@ -39,7 +39,7 @@ const LandingSchools = () => {
 									<div key={index} className='w-full md:w-[30%] h-full bg-primary-50'>
 										{isLoading ? (
 											<Skeleton
-												className='!w-full h-[60%]'
+												className='w-full! h-[60%]'
 												variant='rectangular'
 												animation='wave'
 												width={1000}
@@ -69,7 +69,7 @@ const LandingSchools = () => {
 								<div className='w-full md:w-[30%] h-full bg-primary-50'>
 									{isLoading ? (
 										<Skeleton
-											className='!w-full h-[75%]'
+											className='w-full! h-[75%]'
 											variant='rectangular'
 											animation='wave'
 											width={1000}
@@ -93,7 +93,7 @@ const LandingSchools = () => {
 								<div className='w-full md:w-[30%] h-full bg-primary-50'>
 									{isLoading ? (
 										<Skeleton
-											className='!w-full h-[75%]'
+											className='w-full! h-[75%]'
 											variant='rectangular'
 											animation='wave'
 											width={1000}
@@ -118,7 +118,7 @@ const LandingSchools = () => {
 								<div className='w-full md:w-[30%] h-full bg-primary-50'>
 									{isLoading ? (
 										<Skeleton
-											className='!w-full h-[75%]'
+											className='w-full! h-[75%]'
 											variant='rectangular'
 											animation='wave'
 											width={1000}

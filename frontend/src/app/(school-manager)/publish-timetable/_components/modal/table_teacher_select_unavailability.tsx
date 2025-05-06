@@ -140,8 +140,8 @@ const TeacherSelectUnavailabilityTable = (props: ITeacherSelectUnavailabilityTab
 							)}
 							<TableCell
 								align='center'
-								className={`!font-semibold ${
-									slot + session * 5 <= 5 ? '!text-primary-400' : '!text-tertiary-normal'
+								className={`font-semibold! ${
+									slot + session * 5 <= 5 ? 'text-primary-400!' : 'text-tertiary-normal!'
 								}`}
 								sx={{ m: 0, p: 0, border: warningObject ? '1px solid #e66030' : '1px solid #ddd' }}
 							>

@@ -43,7 +43,7 @@ const PublishTimetableConfirmModal = (props: IPublishTimetableConfirmModalProps)
 					<Typography
 						variant='h6'
 						component='h2'
-						className='text-title-large-strong font-semibold !opacity-80'
+						className='text-title-large-strong font-semibold opacity-80!'
 					>
 						Áp dụng cập nhật
 					</Typography>
@@ -61,7 +61,7 @@ const PublishTimetableConfirmModal = (props: IPublishTimetableConfirmModalProps)
 						title='Áp dụng toàn bộ'
 						onClick={() => handleApprove(true)}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-4'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-4'
 					/>
 					<ContainedButton
 						title='Áp dụng trong tuần'

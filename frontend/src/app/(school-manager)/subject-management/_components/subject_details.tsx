@@ -79,7 +79,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -92,7 +92,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						<h2 className='text-body-large-strong'>{subjectDetails?.abbreviation}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -114,7 +114,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 							{[1, 2, 3, 4].map((item) => (
 								<li key={item}>
 									<Skeleton
-										className='!text-body-large-strong'
+										className='text-body-large-strong!'
 										animation='wave'
 										variant='text'
 										sx={{ width: '80%' }}
@@ -137,7 +137,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -158,7 +158,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -174,7 +174,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 							</h2>
 						) : (
 							<Skeleton
-								className='!text-body-large-strong'
+								className='text-body-large-strong!'
 								animation='wave'
 								variant='text'
 								sx={{ width: '50%' }}
@@ -189,7 +189,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 							</h2>
 						) : (
 							<Skeleton
-								className='!text-body-large-strong'
+								className='text-body-large-strong!'
 								animation='wave'
 								variant='text'
 								sx={{ width: '50%' }}

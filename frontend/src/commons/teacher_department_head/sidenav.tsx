@@ -80,7 +80,7 @@ const TeacherHeadSidenav = () => {
                   />
                   <p
                     className={`text-body-medium font-normal select-none ${
-                      currentPath.startsWith(item.url) ? " !font-semibold" : ""
+                      currentPath.startsWith(item.url) ? " font-semibold!" : ""
                     }`}
                   >
                     {item.name}

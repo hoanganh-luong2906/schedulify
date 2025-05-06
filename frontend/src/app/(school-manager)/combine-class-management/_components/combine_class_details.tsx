@@ -111,7 +111,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -127,7 +127,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -143,7 +143,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -165,7 +165,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -185,7 +185,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             )
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -203,7 +203,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -220,7 +220,7 @@ const CombineClassDetails = (props: ICombineClassDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}

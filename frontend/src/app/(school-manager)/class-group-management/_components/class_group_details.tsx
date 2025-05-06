@@ -98,7 +98,7 @@ const ClassGroupDetails = (props: IClassGroupDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -114,7 +114,7 @@ const ClassGroupDetails = (props: IClassGroupDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -132,7 +132,7 @@ const ClassGroupDetails = (props: IClassGroupDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -148,7 +148,7 @@ const ClassGroupDetails = (props: IClassGroupDetailsProps) => {
             </h2>
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}
@@ -166,7 +166,7 @@ const ClassGroupDetails = (props: IClassGroupDetailsProps) => {
             ))
           ) : (
             <Skeleton
-              className="!text-body-large-strong"
+              className="text-body-large-strong!"
               animation="wave"
               variant="text"
               sx={{ width: "50%" }}

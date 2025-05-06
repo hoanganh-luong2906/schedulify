@@ -316,7 +316,7 @@ const CurriculumTable = (props: ICurriculumTableProps) => {
 											</TableCell>
 											<TableCell
 												align='left'
-												className='!font-semibold'
+												className='font-semibold!'
 												sx={{ color: GRADE_COLOR[row.grade] }}
 											>
 												{row.grade > 0

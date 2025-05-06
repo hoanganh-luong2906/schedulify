@@ -217,7 +217,7 @@ const SMHeader = ({ children }: { children: ReactNode }) => {
           {showNotifications && (
             <div
               ref={notificationRef}
-              className="absolute right-0 top-12 min-w-96 bg-white rounded-lg shadow-lg z-[1000] max-h-96 overflow-y-auto no-scrollbar "
+              className="absolute right-0 top-12 min-w-96 bg-white rounded-lg shadow-lg z-1000 max-h-96 overflow-y-auto no-scrollbar "
             >
               <div className="p-4">
                 <div className="flex justify-between items-center mb-2">

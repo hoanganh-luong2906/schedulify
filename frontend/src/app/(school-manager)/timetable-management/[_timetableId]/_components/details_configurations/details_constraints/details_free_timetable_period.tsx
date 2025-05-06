@@ -199,7 +199,7 @@ const DetailsFreeTimetablePeriod = () => {
 						</FormControl>
 					</div>
 				</Toolbar>
-				<TableContainer className='!no-scrollbar !max-h-[70vh]'>
+				<TableContainer className='!no-scrollbar max-h-[70vh]!'>
 					<Table size='small' stickyHeader>
 						<TableHead>
 							<TableRow>
@@ -257,8 +257,8 @@ const DetailsFreeTimetablePeriod = () => {
 												}}
 												className={
 													slotIndex <= 5
-														? '!text-primary-400'
-														: '!text-tertiary-normal'
+														? 'text-primary-400!'
+														: 'text-tertiary-normal!'
 												}
 												width={30}
 											>

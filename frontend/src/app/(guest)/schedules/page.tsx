@@ -35,7 +35,7 @@ export default function Home() {
 			<section className='w-full px-[5vw] py-12 bg-gray-100'>
 				<div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8'>
 					<div className='h-full flex flex-col justify-center items-start pb-6'>
-						<h3 className='text-title-1.5xl font-semibold mb-4 text-primary-300'>
+						<h3 className='text-title-1_5xl font-semibold mb-4 text-primary-300'>
 							Tính năng nổi bật
 						</h3>
 						<ul className='list-disc list-inside text-gray-700 text-title-medium md:text-title-large'>
@@ -65,7 +65,7 @@ export default function Home() {
 						/>
 					</div>
 					<div className='h-full flex flex-col justify-start md:justify-center items-start md:items-end pb-6'>
-						<h3 className='text-title-1.5xl font-semibold mb-4 text-primary-300 md:text-right'>
+						<h3 className='text-title-1_5xl font-semibold mb-4 text-primary-300 md:text-right'>
 							Cấu hình linh hoạt
 						</h3>
 						<ul

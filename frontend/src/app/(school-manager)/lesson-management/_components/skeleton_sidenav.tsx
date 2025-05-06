@@ -71,11 +71,11 @@ const CurriculumSideNavSkeleton = () => {
 					<AccordionSummary
 						aria-controls={`paneld-content`}
 						id={`paneld-header`}
-						className='!text-primary-500 !bg-basic-gray-hover'
+						className='text-primary-500! bg-basic-gray-hover!'
 					>
 						<Skeleton className='w-full' animation='wave' variant='text' />
 					</AccordionSummary>
-					<AccordionDetails className='!w-full !p-2'>
+					<AccordionDetails className='w-full! !p-2'>
 						{[1, 2, 3].map((subjectGroup: any) => (
 							<div
 								key={subjectGroup.name}
@@ -86,11 +86,11 @@ const CurriculumSideNavSkeleton = () => {
 								<p
 									className={`text-body-medium font-normal w-full ${
 										selectedCurriculum === subjectGroup.url
-											? ' !font-semibold'
+											? ' font-semibold!'
 											: ''
 									}`}
 								>
-									<Skeleton className='!w-full' animation='wave' variant='text' />
+									<Skeleton className='w-full!' animation='wave' variant='text' />
 								</p>
 							</div>
 						))}

@@ -70,7 +70,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						</Typography>
 					</LightTooltip>
 					<LightTooltip title='Chỉnh sửa thông tin môn học'>
-						<IconButton onClick={handleUpdateCurriculum} className='translate-y-[1px] opacity-80'>
+						<IconButton onClick={handleUpdateCurriculum} className='translate-y-px opacity-80'>
 							<Image
 								src='/images/icons/compose.png'
 								alt='Chỉnh sửa'
@@ -93,7 +93,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						<h2 className='text-body-large-strong'>{subjectDetails?.['subject-name']}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -106,7 +106,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						<h2 className='text-body-large-strong'>{subjectDetails?.abbreviation}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -119,7 +119,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						<h2 className='text-body-large-strong'>{subjectDetails?.['subject-group-type']}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -138,7 +138,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}
@@ -151,7 +151,7 @@ const SubjectDetails = (props: ISubjectDetailsProps) => {
 						<h2 className='text-body-large-strong'>{convertedDateString}</h2>
 					) : (
 						<Skeleton
-							className='!text-body-large-strong'
+							className='text-body-large-strong!'
 							animation='wave'
 							variant='text'
 							sx={{ width: '50%' }}

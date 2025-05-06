@@ -161,7 +161,7 @@ export default function Home() {
 	return (
 		<div className='w-full h-screen flex flex-col justify-start items-start'>
 			{isTimetableGenerating && <TimetableLoading isComplete={!isTimetableGenerating} />}
-			<div className='w-full h-[100vh] flex flex-col justify-center items-center'>
+			<div className='w-full h-screen flex flex-col justify-center items-center'>
 				<PreviewScheduleTable
 					isTimetableGenerating={isTimetableGenerating}
 					handleGenerateTimetable={handleGenerateTimetable}

@@ -146,7 +146,7 @@ export default function SMConstraintLayout({ children }: { children: ReactNode }
 		<section
 			className={`w-[${
 				!isMenuOpen ? '84' : '100'
-			}%] h-fit min-h-screen max-h-[100vh] flex flex-col justify-start items-start overflow-y-hidden`}
+			}%] h-fit min-h-screen max-h-screen flex flex-col justify-start items-start overflow-y-hidden`}
 		>
 			<SMHeader>
 				<div className='flex flex-row justify-start items-baseline gap-2'>

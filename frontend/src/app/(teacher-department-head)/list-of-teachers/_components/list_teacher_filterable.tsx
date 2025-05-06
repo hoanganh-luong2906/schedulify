@@ -59,7 +59,7 @@ const TeacherListFilterable = (props: TeacherFilterableProps) => {
           </IconButton>
         </div>
         <FormControl fullWidth variant="filled" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel className="!text-body-xlarge font-normal">
+          <InputLabel className="text-body-xlarge! font-normal">
             Tổ bộ môn
           </InputLabel>
           <Select

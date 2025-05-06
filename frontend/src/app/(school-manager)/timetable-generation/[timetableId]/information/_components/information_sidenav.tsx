@@ -31,7 +31,7 @@ const InformationSidenav = (props: IInformationSidenavProps) => {
 				>
 					<p
 						className={`text-body-medium font-normal w-full ${
-							selectedCategory === category.value ? ' !font-semibold' : ''
+							selectedCategory === category.value ? ' font-semibold!' : ''
 						}`}
 					>
 						{category.label}

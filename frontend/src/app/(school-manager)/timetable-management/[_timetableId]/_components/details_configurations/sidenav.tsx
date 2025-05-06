@@ -34,7 +34,7 @@ const ConfigurationSidenav = (props: IConfigurationSidenavProps) => {
 				>
 					<p
 						className={`text-body-medium font-normal w-full ${
-							currentPath === item.value ? ' !font-semibold' : ''
+							currentPath === item.value ? ' font-semibold!' : ''
 						}`}
 					>
 						{item.label}

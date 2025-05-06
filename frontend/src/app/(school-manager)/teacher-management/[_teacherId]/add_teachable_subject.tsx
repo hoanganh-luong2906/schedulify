@@ -313,7 +313,7 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
         },
       }}
     >
-      <div className="!w-full h-fit flex flex-row justify-between items-center bg-primary-50 !p-3">
+      <div className="w-full! h-fit flex flex-row justify-between items-center bg-primary-50 !p-3">
         <Typography
           variant="h6"
           className="text-title-medium-strong font-normal opacity-60"
@@ -337,8 +337,8 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                 expandIcon={<ExpandMoreIcon />}
                 className="!bg-gray-50"
               >
-                <div className="!flex justify-between items-center w-full">
-                  <Typography variant="subtitle1" className="!font-semibold">
+                <div className="flex! justify-between items-center w-full">
+                  <Typography variant="subtitle1" className="font-semibold!">
                     Chuyên môn {index + 1}
                   </Typography>
                   {index > 0 && (
@@ -643,7 +643,7 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
             title="Huỷ"
             onClick={handleClose}
             disableRipple
-            styles="!bg-basic-gray-active !text-basic-gray !py-1 px-4"
+            styles="bg-basic-gray-active! text-basic-gray! !py-1 px-4"
           />
           <ContainedButton
             title="Thêm chuyên môn"

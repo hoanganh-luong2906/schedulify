@@ -43,7 +43,7 @@ const TeachingAssignmentCancelConfirmModal = (props: ITeachingAssignmentCancelCo
 					<Typography
 						variant='h6'
 						component='h2'
-						className='text-title-large-strong font-semibold !opacity-80'
+						className='text-title-large-strong font-semibold opacity-80!'
 					>
 						Huỷ cập nhật
 					</Typography>
@@ -70,7 +70,7 @@ const TeachingAssignmentCancelConfirmModal = (props: ITeachingAssignmentCancelCo
 						title='Huỷ'
 						onClick={handleClose}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-4'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-4'
 					/>
 				</div>
 			</Box>

@@ -53,7 +53,7 @@ const LandingBanner = () => {
 					</ul>
 					<Link
 						href={'#'}
-						className='w-[40vw] md:w-[50%] lg:w-[30%] truncate !mt-3 flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+						className='w-[40vw] md:w-[50%] lg:w-[30%] truncate !mt-3 flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 					>
 						Khám phá
 						<svg
@@ -81,7 +81,7 @@ const LandingBanner = () => {
 					</ul>
 					<Link
 						href={'#'}
-						className='w-[40vw] md:w-[50%] lg:w-[30%] min-w-[12vw] truncate !mt-3 flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+						className='w-[40vw] md:w-[50%] lg:w-[30%] min-w-[12vw] truncate !mt-3 flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 					>
 						Khám phá
 						<svg
@@ -109,7 +109,7 @@ const LandingBanner = () => {
 					</ul>
 					<Link
 						href={'#'}
-						className='w-[40vw] md:w-[50%] lg:w-[30%] min-w-[12vw] truncate !mt-3 flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+						className='w-[40vw] md:w-[50%] lg:w-[30%] min-w-[12vw] truncate !mt-3 flex justify-center gap-2 items-center border-b-2 border-primary-600 text-lg bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 					>
 						Khám phá
 						<svg
