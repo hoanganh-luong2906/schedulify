@@ -20,7 +20,7 @@ import { visuallyHidden } from '@mui/utils';
 import Image from 'next/image';
 import * as React from 'react';
 import { KeyedMutator } from 'swr';
-import { ISubjectTableData } from '../../_utils/contants';
+import { ISubjectTableData } from '../_libs/constants';
 import AddSubjectModal from './subject_add_modal';
 import DeleteSubjectModal from './subject_delete_modal';
 import UpdateSubjectModal from './subject_update_modal';
