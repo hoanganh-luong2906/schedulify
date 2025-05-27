@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using SchedulifySystem.Repository.EntityModels;
 using System.Text.Json.Serialization;
 using System.Text;
@@ -81,19 +81,9 @@ namespace SchedulifySystem.API
                     BearerFormat = "JWT",
                     Scheme = "Bearer"
                 });
-                opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+                opt.AddSecurityRequirement(document => new OpenApiSecurityRequirement
                 {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type=ReferenceType.SecurityScheme,
-                                Id="Bearer"
-                            }
-                        },
-                        Array.Empty<string>()
-                    }
+                    [new OpenApiSecuritySchemeReference("Bearer", document)] = []
                 });
             });
 

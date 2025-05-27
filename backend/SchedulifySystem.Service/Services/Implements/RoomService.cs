@@ -96,7 +96,7 @@ namespace SchedulifySystem.Service.Services.Implements
             {
                 if(model.RoomType == ERoomType.PRACTICE_ROOM)
                 {
-                    if (model.SubjectsAbreviation.IsNullOrEmpty())
+                    if (model.SubjectsAbreviation is not { Count: > 0 })
                     {
                         errorList.Add(model);
                     }
