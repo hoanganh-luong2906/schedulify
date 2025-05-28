@@ -75,7 +75,7 @@ namespace SchedulifySystem.Service.Services.Implements
                 errorDictionary["Lớp học"].Add("Không có lớp học nào tồn tại.");
             }
             var subjects = await _unitOfWork.SubjectRepo.GetV2Async(filter: f => !f.IsDeleted);
-            var missingAssignment = classes.Where(cls => cls.TeacherAssignments.IsNullOrEmpty())
+            var missingAssignment = classes.Where(cls => cls.TeacherAssignments is not { Count: > 0 })
                 .Select(cls => cls.Name).ToList();
             if (missingAssignment.Any())
             {
