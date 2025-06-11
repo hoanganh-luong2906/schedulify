@@ -510,13 +510,19 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
+                    b.Property<int?>("RoomId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("StartAt")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("Week")
+                    b.Property<int?>("Week")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
