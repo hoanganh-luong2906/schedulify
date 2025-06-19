@@ -1,9 +1,12 @@
 import ContainedButton from '@/commons/button-contained';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, IconButton, Modal, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { ACCOUNT_STATUS } from '../../_utils/constants';
 import { IAccountResponse } from '../_libs/constants';
+import DashboardConfirmModal from './dashboard_modal_confirm';
+import zIndex from '@mui/material/styles/zIndex';
+import DashboardRejectModal from './dashboard_modal_reject';
 
 const style = {
 	position: 'absolute',
@@ -13,6 +16,7 @@ const style = {
 	width: '30vw',
 	height: 'fit-content',
 	bgcolor: 'background.paper',
+	zIndex: 999,
 };
 
 interface IDashboardRequestModalProps {
@@ -33,8 +37,21 @@ const formatDateString = (dateString: string): string => {
 const DashboardRequestModal = (props: IDashboardRequestModalProps) => {
 	const { handleProcess, setOpen, open, selectedAccount: data } = props;
 
+	const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false);
+	const [isRejectConfirmOpen, setIsRejectConfirmOpen] = useState<boolean>(false);
+
 	const handleClose = () => {
 		setOpen(false);
+	};
+
+	const handleConfirm = () => {
+		handleProcess('Active');
+		setIsConfirmOpen(false);
+	};
+
+	const handleRejectConfirm = () => {
+		handleProcess('Inactive');
+		setIsRejectConfirmOpen(false);
 	};
 
 	return (
@@ -57,7 +74,7 @@ const DashboardRequestModal = (props: IDashboardRequestModalProps) => {
 						component='h2'
 						className='text-title-medium-strong font-normal opacity-60'
 					>
-						Yêu cầu đăng ký tài khoản
+						Tài khoản chờ đăng ký
 					</Typography>
 					<IconButton onClick={handleClose}>
 						<CloseIcon />
@@ -118,7 +135,7 @@ const DashboardRequestModal = (props: IDashboardRequestModalProps) => {
 					<ContainedButton
 						title='Từ chối'
 						disableRipple
-						onClick={() => handleProcess('Inactive')}
+						onClick={() => setIsRejectConfirmOpen(true)}
 						styles='!bg-basic-negative !text-white !py-1 px-3'
 					/>
 					<ContainedButton
@@ -126,9 +143,19 @@ const DashboardRequestModal = (props: IDashboardRequestModalProps) => {
 						disableRipple
 						type='button'
 						styles='bg-primary-300 text-white !py-1 px-3'
-						onClick={() => handleProcess('Active')}
+						onClick={() => setIsConfirmOpen(true)}
 					/>
 				</div>
+				<DashboardConfirmModal
+					open={isConfirmOpen}
+					setOpen={setIsConfirmOpen}
+					handleConfirm={handleConfirm}
+				/>
+				<DashboardRejectModal
+					open={isRejectConfirmOpen}
+					setOpen={setIsRejectConfirmOpen}
+					handleConfirm={handleRejectConfirm}
+				/>
 			</Box>
 		</Modal>
 	);
