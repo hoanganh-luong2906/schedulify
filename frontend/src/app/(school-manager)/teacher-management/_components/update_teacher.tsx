@@ -223,18 +223,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
           }}
         >
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Họ và tên
                   </Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid size={4}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -253,7 +249,7 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
                     }
                   />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid size={5}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -274,18 +270,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tên viết tắt
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -307,18 +299,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Email
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -345,18 +333,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Giới tính
                   </Typography>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid size={8}>
                   <FormControl component="fieldset">
                     <RadioGroup
                       row
@@ -378,18 +362,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tổ bộ môn
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl
                     fullWidth
                     error={
@@ -404,11 +384,13 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       MenuProps={{
-                        PaperProps: {
-                          style: {
-                            maxHeight: 150,
-                            overflow: "auto",
-                          },
+                        slotProps: {
+                          paper: {
+                            style: {
+                              maxHeight: 150,
+                              overflow: "auto",
+                            },
+                          }
                         },
                       }}
                     >
@@ -430,24 +412,19 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Ngày sinh
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
                     name="date-of-birth"
                     type="date"
-                    InputLabelProps={{ shrink: true }}
                     value={formik.values["date-of-birth"]}
                     onChange={formik.handleChange("date-of-birth")}
                     onBlur={formik.handleBlur}
@@ -459,23 +436,22 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
                       formik.touched["date-of-birth"] &&
                       formik.errors["date-of-birth"]
                     }
+                    slotProps={{
+                      inputLabel: { shrink: true }
+                    }}
                   />
                 </Grid>
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Vai trò
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl component="fieldset">
                     <RadioGroup
                       row
@@ -497,18 +473,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Trạng thái
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl fullWidth>
                     <Select
                       variant="standard"
@@ -530,18 +502,14 @@ const UpdateTeacherModal = (props: UpdateTeacherFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Số điện thoại
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth

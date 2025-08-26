@@ -121,12 +121,12 @@ const SchoolYearsFilterable: React.FC<ISchoolYearFilterableProps> = (props) => {
 	};
 
 	return (
-		<div
+        <div
 			className={`opacity-0 h-full w-[30%] flex flex-col justify-start items-center pt-1 gap-3 transition-all duration-300 ease-in-out transform ${
 				open ? 'translate-x-0 opacity-100' : '!w-0 translate-x-full opacity-0'
 			}`}
 		>
-			<Paper className='w-full p-3 flex flex-col justify-start items-center gap-3'>
+            <Paper className='w-full p-3 flex flex-col justify-start items-center gap-3'>
 				<div className='w-full flex flex-row justify-between items-center pt-1'>
 					<Typography variant='h6' className='text-title-small-strong font-normal w-full text-left'>
 						Thêm năm học
@@ -153,11 +153,13 @@ const SchoolYearsFilterable: React.FC<ISchoolYearFilterableProps> = (props) => {
 							variant='standard'
 							margin='dense'
 							type='number'
-							inputProps={{ min: currentYear }}
 							value={startYear}
 							onChange={(e) => handleStartYearChange(e.target.value)}
 							error={yearError !== null}
 							helperText={yearError !== null ? yearError : ''}
+							slotProps={{
+                                htmlInput: { min: currentYear }
+                            }}
 						/>
 
 						<h1 className='text-title-xl font-normal text-primary-400 translate-y-1'></h1>
@@ -168,9 +170,11 @@ const SchoolYearsFilterable: React.FC<ISchoolYearFilterableProps> = (props) => {
 							margin='dense'
 							disabled
 							type='number'
-							inputProps={{ min: startYear }}
 							value={endYear}
 							onChange={(e) => handleEndYearChange(e.target.value)}
+							slotProps={{
+                                htmlInput: { min: startYear }
+                            }}
 						/>
 					</div>
 
@@ -222,8 +226,8 @@ const SchoolYearsFilterable: React.FC<ISchoolYearFilterableProps> = (props) => {
 					</Button>
 				</div>
 			</Paper>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default SchoolYearsFilterable;

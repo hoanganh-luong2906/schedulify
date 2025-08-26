@@ -47,13 +47,15 @@ interface IAvailableEmptySlots {
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
-			scrollbars: 'none',
-		},
-	},
+	slotProps: {
+        paper: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+                scrollbars: 'none',
+            },
+        }
+    },
 };
 function getStyles<T>(
 	selected: IDropdownOption<T>,
@@ -161,10 +163,10 @@ const DetailsFreeTimetablePeriod = () => {
 	};
 
 	return (
-		<div
+        <div
 			className='w-full h-full max-h-[80vh] flex flex-row justify-center items-start overflow-y-hidden'
 		>
-			<Paper sx={{ width: '95%', mb: 5 }}>
+            <Paper sx={{ width: '95%', mb: 5 }}>
 				<Toolbar sx={{ height: 25 }}>
 					<div className='w-full flex flex-row justify-start items-baseline gap-5'>
 						<Typography>Chọn khối</Typography>
@@ -271,7 +273,7 @@ const DetailsFreeTimetablePeriod = () => {
 												const isInitSelected =
 													initSelectedCells.includes(cellId);
 												return (
-													<TableCell
+                                                    <TableCell
 														key={cellId}
 														id={cellId}
 														sx={{
@@ -285,19 +287,21 @@ const DetailsFreeTimetablePeriod = () => {
 																: 'transparent',
 														}}
 													>
-														<Collapse
+                                                        <Collapse
 															in={isSelected || isInitSelected}
 															timeout={200}
 														>
-															<Typography fontSize={13}>
+															<Typography sx={{
+                                                                fontSize: 13
+                                                            }}>
 																<ClearIcon
 																	fontSize='small'
 																	sx={{ opacity: 0.6 }}
 																/>
 															</Typography>
 														</Collapse>
-													</TableCell>
-												);
+                                                    </TableCell>
+                                                );
 											})}
 										</TableRow>
 									))}
@@ -307,8 +311,8 @@ const DetailsFreeTimetablePeriod = () => {
 					</Table>
 				</TableContainer>
 			</Paper>
-		</div>
-	);
+        </div>
+    );
 }
 
 export default DetailsFreeTimetablePeriod

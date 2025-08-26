@@ -47,13 +47,15 @@ interface IAvailableEmptySlots {
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
-			scrollbars: 'none',
-		},
-	},
+	slotProps: {
+        paper: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+                scrollbars: 'none',
+            },
+        }
+    },
 };
 function getStyles<T>(
 	selected: IDropdownOption<T>,
@@ -236,11 +238,11 @@ export default function FreeTimetablePeriods() {
 	};
 
 	return (
-		<div
+        <div
 			className='w-full h-full max-h-[90vh] flex flex-row justify-center items-start pt-[2vh] overflow-y-hidden'
 			onMouseUp={handleMouseUp}
 		>
-			<Paper sx={{ width: '95%', mb: 5 }}>
+            <Paper sx={{ width: '95%', mb: 5 }}>
 				<Toolbar sx={{ height: 30 }}>
 					<div className='w-full flex flex-row justify-start items-baseline gap-5'>
 						<Typography>Chọn khối</Typography>
@@ -362,7 +364,7 @@ export default function FreeTimetablePeriods() {
 												const isInitSelected =
 													initSelectedCells.includes(cellId);
 												return (
-													<TableCell
+                                                    <TableCell
 														key={cellId}
 														id={cellId}
 														onMouseDown={() => handleMouseDown(cellId)}
@@ -381,19 +383,21 @@ export default function FreeTimetablePeriods() {
 																: 'transparent',
 														}}
 													>
-														<Collapse
+                                                        <Collapse
 															in={isSelected || isInitSelected}
 															timeout={200}
 														>
-															<Typography fontSize={13}>
+															<Typography sx={{
+                                                                fontSize: 13
+                                                            }}>
 																<ClearIcon
 																	fontSize='small'
 																	sx={{ opacity: 0.6 }}
 																/>
 															</Typography>
 														</Collapse>
-													</TableCell>
-												);
+                                                    </TableCell>
+                                                );
 											})}
 										</TableRow>
 									))}
@@ -403,6 +407,6 @@ export default function FreeTimetablePeriods() {
 					</Table>
 				</TableContainer>
 			</Paper>
-		</div>
-	);
+        </div>
+    );
 }

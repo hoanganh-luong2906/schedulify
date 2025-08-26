@@ -27,7 +27,6 @@ import {
 	ICurriculumDetailResponse,
 	ICurriculumResponse,
 } from '../_libs/constant';
-import rootShouldForwardProp from '@mui/material/styles/rootShouldForwardProp';
 
 const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
 	<Tooltip {...props} classes={{ popper: className }} />

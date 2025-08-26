@@ -89,8 +89,8 @@ interface EnhancedTableProps {
 function EnhancedTableHead(props: EnhancedTableProps) {
 	const { totalSlot } = props;
 	return (
-		<TableHead>
-			<TableRow>
+        <TableHead>
+            <TableRow>
 				<TableCell
 					rowSpan={2}
 					align={headCells[0].centered ? 'center' : 'left'}
@@ -187,7 +187,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 					<p className='!italic !text-[11px] !font-light opacity-60'>(Chỉ đọc)</p>
 				</TableCell>
 			</TableRow>
-			<TableRow>
+            <TableRow>
 				<TableCell
 					align={headCells[3].centered ? 'center' : 'left'}
 					padding={headCells[3].disablePadding ? 'none' : 'normal'}
@@ -202,10 +202,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Tổng số tiết mỗi tuần{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['main-slot-per-week'] > 30 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['main-slot-per-week'] > 30 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['main-slot-per-week'] ?? 0})
 					</Typography>
 				</TableCell>
@@ -224,10 +225,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Số tiết cặp tối thiểu{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['main-minimum-couple'] > 12 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['main-minimum-couple'] > 12 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['main-minimum-couple'] ?? 0})
 					</Typography>
 				</TableCell>
@@ -246,10 +248,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Tổng số tiết mỗi tuần{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['sub-slot-per-week'] > 30 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['sub-slot-per-week'] > 30 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['sub-slot-per-week'] ?? 0})
 					</Typography>
 				</TableCell>
@@ -268,16 +271,17 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Số tiết cặp tối thiểu{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['sub-minimum-couple'] > 12 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['sub-minimum-couple'] > 12 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['sub-minimum-couple'] ?? 0})
 					</Typography>
 				</TableCell>
 			</TableRow>
-		</TableHead>
-	);
+        </TableHead>
+    );
 }
 interface ILessonTableProps {
 	subjectTableData: ILessonTableData[];
@@ -518,7 +522,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 	};
 
 	return (
-		<Box
+        <Box
 			sx={{
 				width: '100%',
 				paddingTop: '5vh',
@@ -528,7 +532,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 				alignItems: 'center',
 			}}
 		>
-			<Paper sx={{ width: '100%', mb: 2 }}>
+            <Paper sx={{ width: '100%', mb: 2 }}>
 				<Toolbar
 					sx={[
 						{
@@ -562,9 +566,11 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 							anchorEl={anchorEl}
 							open={isFilterableOpen}
 							onClose={handleClose}
-							MenuListProps={{
-								'aria-labelledby': 'basic-button',
-							}}
+							slotProps={{
+                                list: {
+                                    'aria-labelledby': 'basic-button',
+                                }
+                            }}
 						>
 							{termData?.length === 0 && (
 								<MenuItem disabled value={0}>
@@ -646,7 +652,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 									) ?? undefined;
 
 								return (
-									<TableRow
+                                    <TableRow
 										hover
 										role='checkbox'
 										tabIndex={-1}
@@ -661,7 +667,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 											},
 										]}
 									>
-										<TableCell
+                                        <TableCell
 											component='th'
 											id={labelId}
 											scope='row'
@@ -671,7 +677,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 										>
 											{index + 1}
 										</TableCell>
-										<TableCell
+                                        <TableCell
 											align='left'
 											width={150}
 											sx={{
@@ -685,12 +691,14 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 														: 'Môn học tự chọn'
 												}
 											>
-												<Typography fontSize={15}>
+												<Typography sx={{
+                                                    fontSize: 15
+                                                }}>
 													{row.lessonName}
 												</Typography>
 											</Tooltip>
 										</TableCell>
-										<TableCell align='center' width={100}>
+                                        <TableCell align='center' width={100}>
 											<TextField
 												variant='standard'
 												type='number'
@@ -735,7 +743,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 												id='fullWidth'
 											/>
 										</TableCell>
-										<TableCell align='center' width={100}>
+                                        <TableCell align='center' width={100}>
 											<TextField
 												variant='standard'
 												type='number'
@@ -781,7 +789,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 											/>
 										</TableCell>
 
-										<TableCell align='center' width={100}>
+                                        <TableCell align='center' width={100}>
 											<TextField
 												variant='standard'
 												type='number'
@@ -825,7 +833,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 												id='fullWidth'
 											/>
 										</TableCell>
-										<TableCell align='center' width={100}>
+                                        <TableCell align='center' width={100}>
 											<TextField
 												variant='standard'
 												type='number'
@@ -870,7 +878,7 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 											/>
 										</TableCell>
 
-										<TableCell align='center' width={50}>
+                                        <TableCell align='center' width={50}>
 											<Checkbox
 												color='default'
 												onChange={(
@@ -887,28 +895,30 @@ const LessonTable: FC<ILessonTableProps> = (props: ILessonTableProps) => {
 														? row.isDouleSlot
 														: editedObject['is-double-period']
 												}
-												inputProps={{
-													'aria-labelledby': labelId,
-												}}
+												slotProps={{
+                                                    input: {
+                                                        'aria-labelledby': labelId,
+                                                    }
+                                                }}
 											/>
 										</TableCell>
-										<TableCell width={50} align='center'>
+                                        <TableCell width={50} align='center'>
 											<Checkbox disabled checked={row.isSpecializedSubject} />
 										</TableCell>
-									</TableRow>
-								);
+                                    </TableRow>
+                                );
 							})}
 						</TableBody>
 					</Table>
 				</TableContainer>
 			</Paper>
-			<CancelUpdateLessonModal
+            <CancelUpdateLessonModal
 				open={isCancelUpdateModalOpen}
 				setOpen={setIsCancelUpdateModalOpen}
 				handleApprove={handleCancelUpdateLesson}
 			/>
-		</Box>
-	);
+        </Box>
+    );
 };
 
 export default LessonTable;

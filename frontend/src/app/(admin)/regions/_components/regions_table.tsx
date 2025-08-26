@@ -62,9 +62,9 @@ const RegionsTable: FC<IRegionsTableProps> = (props) => {
 		};
 
 	return (
-		<Box sx={{ margin: 'auto', mt: 2 }}>
-			{/* Search Bar */}
-			<TextField
+        <Box sx={{ margin: 'auto', mt: 2 }}>
+            {/* Search Bar */}
+            <TextField
 				label='Tìm kiếm tỉnh'
 				variant='outlined'
 				fullWidth
@@ -73,8 +73,8 @@ const RegionsTable: FC<IRegionsTableProps> = (props) => {
 				sx={{ mb: 2 }}
 			/>
 
-			{/* Accordion for each province */}
-			{filteredProvinces.map((province) => (
+            {/* Accordion for each province */}
+            {filteredProvinces.map((province) => (
 				<Accordion
 					key={province.id}
 					expanded={expanded === province.id}
@@ -126,12 +126,12 @@ const RegionsTable: FC<IRegionsTableProps> = (props) => {
 						<Grid container spacing={2} sx={{ px: 3, mt: 1 }}>
 							{isDistrictValidating
 								? [1, 2, 3, 4, 5, 6].map((index) => (
-										<Grid item xs={4} key={index}>
+										<Grid key={index} size={4}>
 											<Skeleton variant='text' width='100%' animation='wave' />
 										</Grid>
 								  ))
 								: selectedDistrictData.map((district, index) => (
-										<Grid item xs={4} key={index}>
+										<Grid key={index} size={4}>
 											<ListItemText primary={district.name} />
 										</Grid>
 								  ))}
@@ -139,8 +139,8 @@ const RegionsTable: FC<IRegionsTableProps> = (props) => {
 					</AccordionDetails>
 				</Accordion>
 			))}
-		</Box>
-	);
+        </Box>
+    );
 };
 
 export default RegionsTable;

@@ -400,15 +400,17 @@ const ClassGroupTable = (props: IClassGroupTableProps) => {
                           anchorEl={anchorEl}
                           open={Boolean(anchorEl) && selectedRow?.id === row.id}
                           onClose={handleMenuClose}
-                          MenuListProps={{
-                            "aria-labelledby": "basic-button",
-                            onClick: (e) => e.stopPropagation(),
-                          }}
                           disablePortal
                           keepMounted
                           disableAutoFocus
                           disableEnforceFocus
                           disableRestoreFocus
+                          slotProps={{
+                            list: {
+                              "aria-labelledby": "basic-button",
+                              onClick: (e: React.MouseEvent) => e.stopPropagation(),
+                            }
+                          }}
                         >
                           {dropdownOptions.map((option, index) => (
                             <MenuItem

@@ -15,7 +15,7 @@ const LandingSchools = dynamic(() => import('./_components/section_schools'));
 const LandingWCU = dynamic(() => import('./_components/section_wcu'));
 const LandingBanner = dynamic(() => import('./_components/section_banner'));
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
 	const handleGotoTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};

@@ -31,13 +31,15 @@ import ClearIcon from '@mui/icons-material/Clear';
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
-			scrollbars: 'none',
-		},
-	},
+	slotProps: {
+        paper: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+                scrollbars: 'none',
+            },
+        }
+    },
 };
 function getStyles(
 	selected: IDropdownOption<number>,
@@ -139,8 +141,8 @@ const DetailsTeacherUnavailability: FC<IDetailsTeacherUnavailabilityProps> = (pr
 	}, [teacherOptions, selectedTeacherId]);
 
 	return (
-		<div className='w-[100%] h-[90vh] px-[10vw] pt-[5vh]'>
-			{dataStored && dataStored['no-assign-periods-para'].length > 0 ? (
+        <div className='w-[100%] h-[90vh] px-[10vw] pt-[5vh]'>
+            {dataStored && dataStored['no-assign-periods-para'].length > 0 ? (
 				<div className='w-full h-full flex flex-col justify-start items-center gap-5'>
 					<div
 						id='teacher-selector'
@@ -264,7 +266,7 @@ const DetailsTeacherUnavailability: FC<IDetailsTeacherUnavailabilityProps> = (pr
 														const cellId = weekdayIndex * 10 + sessionIndex * 5 + slotIndex + 1;
 														const isSelected = selectedCells[cellId]?.selected || false;
 														return (
-															<TableCell
+                                                            <TableCell
 																key={cellId}
 																align='center'
 																sx={{
@@ -274,13 +276,15 @@ const DetailsTeacherUnavailability: FC<IDetailsTeacherUnavailabilityProps> = (pr
 																	border: '1px solid #ddd',
 																}}
 															>
-																<Collapse in={isSelected} timeout={200}>
-																	<Typography fontSize={13}>
+                                                                <Collapse in={isSelected} timeout={200}>
+																	<Typography sx={{
+                                                                        fontSize: 13
+                                                                    }}>
 																		<ClearIcon fontSize='small' sx={{ opacity: 0.6 }} />
 																	</Typography>
 																</Collapse>
-															</TableCell>
-														);
+                                                            </TableCell>
+                                                        );
 													})}
 												</TableRow>
 											))}
@@ -299,8 +303,8 @@ const DetailsTeacherUnavailability: FC<IDetailsTeacherUnavailabilityProps> = (pr
 			) : (
 				<div></div>
 			)}
-		</div>
-	);
+        </div>
+    );
 };
 
 export default DetailsTeacherUnavailability;

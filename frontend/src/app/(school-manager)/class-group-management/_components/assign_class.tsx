@@ -139,14 +139,16 @@ const AssignClassModal = ({ open, onClose, classGroupId, mutate, grade }: Assign
                     formik.setFieldValue("class-ids", currentValues);
                   }}
                 />
-                <Grid container spacing={2} alignItems="center">
-                  <Grid item xs={3}>
+                <Grid container spacing={2} sx={{
+                  alignItems: "center"
+                }}>
+                  <Grid size={3}>
                     <Typography>{classItem.name}</Typography>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Typography>{classItem["student-class-group-name"]}</Typography>
                   </Grid>
-                  <Grid item xs={5}>
+                  <Grid size={5}>
                     <Typography>{classItem["curriculum-name"]}</Typography>
                   </Grid>
                 </Grid>

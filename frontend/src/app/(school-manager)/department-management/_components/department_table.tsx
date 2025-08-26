@@ -234,8 +234,8 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 	);
 
 	return (
-		<Box sx={{ width: '100%' }}>
-			<Paper sx={{ width: '100%', mb: 2 }}>
+        <Box sx={{ width: '100%' }}>
+            <Paper sx={{ width: '100%', mb: 2 }}>
 				<Toolbar
 					sx={[
 						{
@@ -282,7 +282,7 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 								const labelId = `enhanced-table-checkbox-${index}`;
 
 								return (
-									<TableRow
+                                    <TableRow
 										hover
 										role='checkbox'
 										tabIndex={-1}
@@ -296,7 +296,7 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 										]}
 										onClick={() => handleDetailsClick(row)}
 									>
-										<TableCell
+                                        <TableCell
 											component='th'
 											id={labelId}
 											scope='row'
@@ -305,7 +305,7 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 										>
 											{index + 1 + page * rowsPerPage}
 										</TableCell>
-										<TableCell
+                                        <TableCell
 											align='left'
 											width={300}
 											sx={{
@@ -315,21 +315,31 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 												cursor: 'pointer',
 											}}
 										>
-											<Typography noWrap width={200} fontSize={15}>
+											<Typography
+                                                noWrap
+                                                sx={{
+                                                    width: 200,
+                                                    fontSize: 15
+                                                }}>
 												{row.departmentName}
 											</Typography>
 										</TableCell>
-										<TableCell align='left'>
+                                        <TableCell align='left'>
 											{row.departmentCode ? row.departmentCode : '- - - - -'}
 										</TableCell>
-										<TableCell align='left' width={200}>
-											<Typography noWrap width={200} fontSize={15}>
+                                        <TableCell align='left' width={200}>
+											<Typography
+                                                noWrap
+                                                sx={{
+                                                    width: 200,
+                                                    fontSize: 15
+                                                }}>
 												{row.description.length > 0
 													? row.description
 													: '- - - - -'}
 											</Typography>
 										</TableCell>
-										<TableCell sx={{ overflow: 'visible' }}>
+                                        <TableCell sx={{ overflow: 'visible' }}>
 											<IconButton
 												color='error'
 												sx={{ zIndex: 10 }}
@@ -343,8 +353,8 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 												/>
 											</IconButton>
 										</TableCell>
-									</TableRow>
-								);
+                                    </TableRow>
+                                );
 							})}
 							{emptyRows > 0 && (
 								<TableRow
@@ -372,32 +382,32 @@ const DepartmentTable = (props: IDepartmentTableProps) => {
 					onRowsPerPageChange={handleChangeRowsPerPage}
 				/>
 			</Paper>
-			<CreateDepartment
+            <CreateDepartment
 				open={isCreateModalOpen}
 				setOpen={setIsCreateModalOpen}
 				updateDepartment={updateTable}
 			/>
-			<UpdateDepartment
+            <UpdateDepartment
 				departmentData={selectedRow}
 				open={isUpdateDepartmentOpen}
 				setOpen={setUpdateDepartmentOpen}
 				updateDepartment={updateTable}
 			/>
-			<DeleteDepartmentModal
+            <DeleteDepartmentModal
 				open={isDeleteModalOpen}
 				setOpen={setIsDeleteModalOpen}
 				departmentId={selectedRow.departmentKey}
 				departmentName={selectedRow.departmentName}
 				mutate={updateTable}
 			/>
-			<DepartmentHeadAssignmentModal
+            <DepartmentHeadAssignmentModal
 				departmentData={departmentData}
 				open={isHeadAssignmentModalOpen}
 				setOpen={setIsHeadAssignmentModalOpen}
 				updateDepartment={updateTable}
 			/>
-		</Box>
-	);
+        </Box>
+    );
 };
 
 export default DepartmentTable;

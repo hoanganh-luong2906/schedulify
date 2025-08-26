@@ -5,7 +5,7 @@ import { SUBJECT_ABBREVIATION } from '@/utils/constants';
 import { TRANSLATOR } from '@/utils/dictionary';
 import CloseIcon from '@mui/icons-material/Close';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutlined';
 import {
 	Box,
 	Checkbox,
@@ -60,13 +60,15 @@ const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
 const ITEM_HEIGHT = 40;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4 + ITEM_PADDING_TOP,
-			width: 200,
-			scrollbars: 'none',
-		},
-	},
+	slotProps: {
+        paper: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4 + ITEM_PADDING_TOP,
+                width: 200,
+                scrollbars: 'none',
+            },
+        }
+    },
 };
 function getStyles(
 	selected: IDropdownOption<number>,

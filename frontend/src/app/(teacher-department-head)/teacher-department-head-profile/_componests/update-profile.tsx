@@ -149,18 +149,14 @@ const UpdateProfileModel = (props: UpdateProfileProps) => {
         >
           <Grid container spacing={2}>
             {/* First Name */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Họ
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     fullWidth
                     variant="standard"
@@ -183,18 +179,14 @@ const UpdateProfileModel = (props: UpdateProfileProps) => {
             </Grid>
 
             {/* Last Name */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tên
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     fullWidth
                     variant="standard"
@@ -216,18 +208,14 @@ const UpdateProfileModel = (props: UpdateProfileProps) => {
             </Grid>
 
             {/* Phone */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Số điện thoại
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     fullWidth
                     variant="standard"
@@ -244,18 +232,14 @@ const UpdateProfileModel = (props: UpdateProfileProps) => {
             </Grid>
 
             {/* Avatar */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Avatar
                   </Typography>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid size={3}>
                   <div
                     style={{
                       position: "relative",

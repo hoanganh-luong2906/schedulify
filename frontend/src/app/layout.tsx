@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 	description: 'Hệ thống xây dựng Thời khóa biểu online',
 	metadataBase: new URL('https://schedulify.id.vn'),
 };
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const cookieStore = cookies();
+	const cookieStore = await cookies();
 	const sessionToken = cookieStore.get('sessionToken');
 	const refreshToken = cookieStore.get('refreshToken');
 	const userRole = cookieStore.get('userRole');

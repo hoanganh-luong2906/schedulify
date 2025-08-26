@@ -42,12 +42,14 @@ const CustomButton = styled(Button)({
 const ITEM_HEIGHT = 40;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-      scrollbars: "none",
-    },
+  slotProps: {
+    paper: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+        scrollbars: "none",
+      },
+    }
   },
 };
 
@@ -346,26 +348,28 @@ export const RegisterForm = () => {
           }}
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
-          InputProps={{
-            endAdornment: (
-              <IconButton
-                color="default"
-                aria-label="Hiện mật khẩu"
-                onClick={handleShowPassword}
-              >
-                <Image
-                  className="opacity-30"
-                  src={
-                    showPassword
-                      ? "/images/icons/hidden.png"
-                      : "/images/icons/view.png"
-                  }
-                  alt="eye"
-                  width={20}
-                  height={20}
-                />
-              </IconButton>
-            ),
+          slotProps={{
+            input: {
+              endAdornment: (
+                <IconButton
+                  color="default"
+                  aria-label="Hiện mật khẩu"
+                  onClick={handleShowPassword}
+                >
+                  <Image
+                    className="opacity-30"
+                    src={
+                      showPassword
+                        ? "/images/icons/hidden.png"
+                        : "/images/icons/view.png"
+                    }
+                    alt="eye"
+                    width={20}
+                    height={20}
+                  />
+                </IconButton>
+              ),
+            }
           }}
         />
         <Box sx={{ width: "100%" }}>
@@ -461,26 +465,28 @@ export const RegisterForm = () => {
             formik.touched["confirm-account-password"] &&
             formik.errors["confirm-account-password"]
           }
-          InputProps={{
-            endAdornment: (
-              <IconButton
-                color="default"
-                aria-label="Hiện mật khẩu"
-                onClick={handleShowConfirmPassword}
-              >
-                <Image
-                  className="opacity-30"
-                  src={
-                    confirmPassword
-                      ? "/images/icons/hidden.png"
-                      : "/images/icons/view.png"
-                  }
-                  alt="eye"
-                  width={20}
-                  height={20}
-                />
-              </IconButton>
-            ),
+          slotProps={{
+            input: {
+              endAdornment: (
+                <IconButton
+                  color="default"
+                  aria-label="Hiện mật khẩu"
+                  onClick={handleShowConfirmPassword}
+                >
+                  <Image
+                    className="opacity-30"
+                    src={
+                      confirmPassword
+                        ? "/images/icons/hidden.png"
+                        : "/images/icons/view.png"
+                    }
+                    alt="eye"
+                    width={20}
+                    height={20}
+                  />
+                </IconButton>
+              ),
+            }
           }}
         />
         <CustomButton

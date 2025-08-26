@@ -34,13 +34,15 @@ import { setTeacherHeadInfo } from '@/context/slice_teacher_head';
 const ITEM_HEIGHT = 30;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
-			scrollbars: 'none',
-		},
-	},
+	slotProps: {
+        paper: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+                scrollbars: 'none',
+            },
+        }
+    },
 };
 
 const CustomButton = styled(Button)({
@@ -256,9 +258,9 @@ export const LoginForm = () => {
 	});
 
 	return (
-		<div className='w-full'>
-			<LoadingComponent loadingStatus={isLoggingIn} />
-			<form
+        <div className='w-full'>
+            <LoadingComponent loadingStatus={isLoggingIn} />
+            <form
 				id='formId'
 				onSubmit={(event: any) => {
 					event.preventDefault();
@@ -306,19 +308,21 @@ export const LoginForm = () => {
 					onBlur={formik.handleBlur}
 					error={formik.touched.password && Boolean(formik.errors.password)}
 					helperText={formik.touched.password && formik.errors.password}
-					InputProps={{
-						endAdornment: (
-							<IconButton color='default' aria-label='Hiện mật khẩu' onClick={handleShowPassword}>
-								<Image
-									className='opacity-30'
-									src={showPassword ? '/images/icons/hidden.png' : '/images/icons/view.png'}
-									alt='eye'
-									width={20}
-									height={20}
-								/>
-							</IconButton>
-						),
-					}}
+					slotProps={{
+                        input: {
+                            endAdornment: (
+                                <IconButton color='default' aria-label='Hiện mật khẩu' onClick={handleShowPassword}>
+                                    <Image
+                                        className='opacity-30'
+                                        src={showPassword ? '/images/icons/hidden.png' : '/images/icons/view.png'}
+                                        alt='eye'
+                                        width={20}
+                                        height={20}
+                                    />
+                                </IconButton>
+                            ),
+                        }
+                    }}
 				/>
 				<FormControl sx={{ width: '100%' }}>
 					<InputLabel id='school-year-label' variant='standard'>
@@ -381,13 +385,13 @@ export const LoginForm = () => {
 					</span>
 				</h3>
 			</form>
-			<LoginRoleSelector
+            <LoginRoleSelector
 				open={isMultiRole}
 				setOpen={setIsMultiRole}
 				roleOptions={roleOptions}
 				selected={selectedRole}
 				setSelected={setSelectedRole}
 			/>
-		</div>
-	);
+        </div>
+    );
 };

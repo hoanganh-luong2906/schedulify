@@ -174,17 +174,19 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 		};
 
 	return (
-		<TableHead>
-			<TableRow>
+        <TableHead>
+            <TableRow>
 				<TableCell padding='checkbox'>
 					<Checkbox
 						color='primary'
 						indeterminate={numSelected > 0 && numSelected < rowCount}
 						checked={rowCount > 0 && numSelected === rowCount}
 						onChange={onSelectAllClick}
-						inputProps={{
-							'aria-label': 'select all desserts',
-						}}
+						slotProps={{
+                            input: {
+                                'aria-label': 'select all desserts',
+                            }
+                        }}
 					/>
 				</TableCell>
 				{headCells.map((headCell) => (
@@ -218,8 +220,8 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 					</TableCell>
 				))}
 			</TableRow>
-		</TableHead>
-	);
+        </TableHead>
+    );
 }
 
 // For extrafunction of Table toolbar (delete, filter, etc.)
@@ -338,8 +340,8 @@ const CustomTable = () => {
 	);
 
 	return (
-		<Box sx={{ width: '100%' }}>
-			<Paper sx={{ width: '100%', mb: 2 }}>
+        <Box sx={{ width: '100%' }}>
+            <Paper sx={{ width: '100%', mb: 2 }}>
 				<EnhancedTableToolbar numSelected={selected.length} />
 				<TableContainer>
 					<Table
@@ -361,7 +363,7 @@ const CustomTable = () => {
 								const labelId = `enhanced-table-checkbox-${index}`;
 
 								return (
-									<TableRow
+                                    <TableRow
 										hover
 										onClick={(event) => handleClick(event, row.id)}
 										role='checkbox'
@@ -371,16 +373,18 @@ const CustomTable = () => {
 										selected={isItemSelected}
 										sx={{ cursor: 'pointer' }}
 									>
-										<TableCell padding='checkbox'>
+                                        <TableCell padding='checkbox'>
 											<Checkbox
 												color='primary'
 												checked={isItemSelected}
-												inputProps={{
-													'aria-labelledby': labelId,
-												}}
+												slotProps={{
+                                                    input: {
+                                                        'aria-labelledby': labelId,
+                                                    }
+                                                }}
 											/>
 										</TableCell>
-										<TableCell
+                                        <TableCell
 											component='th'
 											id={labelId}
 											scope='row'
@@ -389,16 +393,16 @@ const CustomTable = () => {
 										>
 											{row.timetableCode}
 										</TableCell>
-										<TableCell align='left'>
+                                        <TableCell align='left'>
 											{row.timetableName}
 										</TableCell>
-										<TableCell align='center'>
+                                        <TableCell align='center'>
 											{row.appliedDate}
 										</TableCell>
-										<TableCell align='center'>
+                                        <TableCell align='center'>
 											{row.endDate}
 										</TableCell>
-										<TableCell align='center'>
+                                        <TableCell align='center'>
 											<h2
 												className={`font-semibold ${
 													row.fitness > 90
@@ -409,7 +413,7 @@ const CustomTable = () => {
 												{row.fitness}%
 											</h2>
 										</TableCell>
-										<TableCell align='center'>
+                                        <TableCell align='center'>
 											<div className='w-full h-full flex justify-center items-center'>
 												<div
 													className={`w-fit h-fit px-[6%] py-[2%] rounded-[5px] font-semibold 
@@ -425,8 +429,8 @@ const CustomTable = () => {
 												</div>
 											</div>
 										</TableCell>
-									</TableRow>
-								);
+                                    </TableRow>
+                                );
 							})}
 							{emptyRows > 0 && (
 								<TableRow
@@ -450,6 +454,6 @@ const CustomTable = () => {
 					onRowsPerPageChange={handleChangeRowsPerPage}
 				/>
 			</Paper>
-		</Box>
-	);
+        </Box>
+    );
 };

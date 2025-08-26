@@ -27,13 +27,15 @@ import { IFilterableDropdownOption } from '../_libs/constants';
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-	PaperProps: {
-		style: {
-			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
-			scrollbars: 'none',
-		},
-	},
+	slotProps: {
+        paper: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+                scrollbars: 'none',
+            },
+        }
+    },
 };
 function getStyles(
 	selected: IDropdownOption<number>,
@@ -126,8 +128,8 @@ const TeacherUnavailableSelector = (props: ITeacherUnavailableSelectorProps) => 
 	}, [teacherOptions, selectedTeacherIds]);
 
 	return (
-		<div className='w-[60%] h-[90vh] border-r-1 border-basic-gray-active px-[2vw] pt-[5vh] flex flex-col justify-start items-start gap-5'>
-			<div
+        <div className='w-[60%] h-[90vh] border-r-1 border-basic-gray-active px-[2vw] pt-[5vh] flex flex-col justify-start items-start gap-5'>
+            <div
 				id='teacher-selector'
 				className='w-full h-[5vh] flex flex-row justify-between items-baseline'
 			>
@@ -222,7 +224,7 @@ const TeacherUnavailableSelector = (props: ITeacherUnavailableSelectorProps) => 
 					Lưu thay đổi
 				</Button>
 			</div>
-			<div className='w-full h-fit select-none mt-6'>
+            <div className='w-full h-fit select-none mt-6'>
 				<p className='text-body-small italic opacity-60 my-1 w-full text-ellipsis text-nowrap overflow-hidden'>
 					(*) Kéo và chọn các tiết nghỉ/bận của giáo viên để tránh xếp lịch vào các tiết
 					đó
@@ -271,7 +273,7 @@ const TeacherUnavailableSelector = (props: ITeacherUnavailableSelectorProps) => 
 												const isSelected =
 													selectedCells[cellId]?.selected || false;
 												return (
-													<TableCell
+                                                    <TableCell
 														key={cellId}
 														align='center'
 														sx={{
@@ -287,16 +289,18 @@ const TeacherUnavailableSelector = (props: ITeacherUnavailableSelectorProps) => 
 															handleMouseEnter(cellId)
 														}
 													>
-														<Collapse in={isSelected} timeout={200}>
-															<Typography fontSize={13}>
+                                                        <Collapse in={isSelected} timeout={200}>
+															<Typography sx={{
+                                                                fontSize: 13
+                                                            }}>
 																<ClearIcon
 																	fontSize='small'
 																	sx={{ opacity: 0.6 }}
 																/>
 															</Typography>
 														</Collapse>
-													</TableCell>
-												);
+                                                    </TableCell>
+                                                );
 											})}
 										</TableRow>
 									))}
@@ -311,8 +315,8 @@ const TeacherUnavailableSelector = (props: ITeacherUnavailableSelectorProps) => 
 					</Table>
 				</TableContainer>
 			</div>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default TeacherUnavailableSelector;

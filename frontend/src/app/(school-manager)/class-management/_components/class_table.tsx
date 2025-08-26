@@ -401,8 +401,10 @@ const ClassTable = (props: IClassTableProps) => {
                           elevation={1}
                           open={Boolean(anchorEl) && selectedRow === row}
                           onClose={handleMenuClose}
-                          MenuListProps={{
-                            "aria-labelledby": "basic-button",
+                          slotProps={{
+                            list: {
+                              "aria-labelledby": "basic-button",
+                            }
                           }}
                         >
                           {dropdownOptions.map((option, index) => (

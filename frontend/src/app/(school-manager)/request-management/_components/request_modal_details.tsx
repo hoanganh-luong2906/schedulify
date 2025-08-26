@@ -131,7 +131,7 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 	}
 
 	return (
-		<Modal
+        <Modal
 			open={open}
 			onClose={handleClose}
 			aria-labelledby='keep-mounted-modal-title'
@@ -140,7 +140,7 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 			disableAutoFocus
 			disableRestoreFocus
 		>
-			<Box sx={style}>
+            <Box sx={style}>
 				<div
 					id='modal-header'
 					className='w-full h-fit flex flex-row justify-between items-center bg-basic-gray-hover p-3 py-1'
@@ -180,8 +180,15 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 						<Divider sx={{ my: 2 }} />
 
 						{/* Thông tin giáo viên */}
-						<Box display='flex' gap={1} mb={2}>
-							<Typography variant='body1' fontWeight='bold'>
+						<Box
+                            sx={{
+                                display: 'flex',
+                                gap: 1,
+                                mb: 2
+                            }}>
+							<Typography variant='body1' sx={{
+                                fontWeight: 'bold'
+                            }}>
 								Người gửi:
 							</Typography>
 							<Typography variant='body1'>
@@ -190,16 +197,27 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 						</Box>
 
 						{/* Ngày tạo */}
-						<Box display='flex' gap={1} mb={2}>
-							<Typography variant='body1' fontWeight='bold'>
+						<Box
+                            sx={{
+                                display: 'flex',
+                                gap: 1,
+                                mb: 2
+                            }}>
+							<Typography variant='body1' sx={{
+                                fontWeight: 'bold'
+                            }}>
 								Ngày tạo:
 							</Typography>
 							<Typography variant='body1'>{formatDateString(selectedRequest['create-date'])}</Typography>
 						</Box>
 
 						{/* Nội dung */}
-						<Box mb={2}>
-							<Typography variant='body1' fontWeight='bold'>
+						<Box sx={{
+                            mb: 2
+                        }}>
+							<Typography variant='body1' sx={{
+                                fontWeight: 'bold'
+                            }}>
 								Lý do:
 							</Typography>
 							<Typography
@@ -212,16 +230,17 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 
 						{/* Tệp đính kèm */}
 						<Box
-							mt={2}
-							sx={{
-								display: 'flex',
-								flexDirection: 'row',
-								justifyContent: 'start',
-								alignItems: 'center',
-								gap: 1,
-							}}
-						>
-							<Typography variant='body1' fontWeight='bold' gutterBottom>
+                            sx={{
+                                mt: 2,
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'start',
+                                alignItems: 'center',
+                                gap: 1
+                            }}>
+							<Typography variant='body1' gutterBottom sx={{
+                                fontWeight: 'bold'
+                            }}>
 								Tệp đính kèm:
 							</Typography>
 							{selectedRequest['attached-file'] !== null ? (
@@ -241,7 +260,9 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 									<span style={{ textDecoration: 'underline' }}>Xem file</span>
 								</a>
 							) : (
-								<Typography variant='body2' color='text.secondary'>
+								<Typography variant='body2' sx={{
+                                    color: 'text.secondary'
+                                }}>
 									Không có tệp đính kèm
 								</Typography>
 							)}
@@ -249,8 +270,12 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 						{selectedRequest.status !== 'Pending' && (
 							<div className='w-full h-fit flex flex-col justify-center items-start gap-3 mt-3'>
 								<Divider variant='middle' sx={{width: '100%'}} />
-								<Box mb={2}>
-									<Typography variant='body1' fontWeight='bold'>
+								<Box sx={{
+                                    mb: 2
+                                }}>
+									<Typography variant='body1' sx={{
+                                        fontWeight: 'bold'
+                                    }}>
 										Ghi chú:
 									</Typography>
 									<Typography
@@ -299,8 +324,8 @@ const RequestDetailsModal = (props: IRequestDetailsModalprops) => {
 					handleConfirm={handleRejectConfirm}
 				/>
 			</Box>
-		</Modal>
-	);
+        </Modal>
+    );
 };
 
 export default RequestDetailsModal;
