@@ -761,6 +761,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int?>("SubjectId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("TeacherId")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("TermId")
                         .HasColumnType("integer");
 
@@ -774,6 +777,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.HasIndex("SchoolId");
 
                     b.HasIndex("SubjectId");
+
+                    b.HasIndex("TeacherId");
 
                     b.HasIndex("TermId");
 
@@ -1773,6 +1778,10 @@ namespace SchedulifySystem.Repository.Migrations
                         .WithMany("RoomSubjects")
                         .HasForeignKey("SubjectId");
 
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.Teacher", "Teacher")
+                        .WithMany("RoomSubjects")
+                        .HasForeignKey("TeacherId");
+
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Term", "Term")
                         .WithMany("RoomSubjects")
                         .HasForeignKey("TermId");
@@ -1782,6 +1791,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("School");
 
                     b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
 
                     b.Navigation("Term");
                 });
@@ -2282,6 +2293,8 @@ namespace SchedulifySystem.Repository.Migrations
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Teacher", b =>
                 {
                     b.Navigation("ClassPeriods");
+
+                    b.Navigation("RoomSubjects");
 
                     b.Navigation("StudentClasses");
 
