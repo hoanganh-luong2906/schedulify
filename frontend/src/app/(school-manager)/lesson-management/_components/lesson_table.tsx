@@ -184,7 +184,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 					]}
 				>
 					{headCells[headCells.length - 1].label}
-					<p className='!italic !text-[11px] !font-light opacity-60'>(Chỉ đọc)</p>
+					<p className='italic! text-[11px]! font-light! opacity-60'>(Chỉ đọc)</p>
 				</TableCell>
 			</TableRow>
             <TableRow>

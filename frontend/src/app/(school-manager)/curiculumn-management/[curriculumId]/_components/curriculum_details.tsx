@@ -53,7 +53,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 						</Typography>
 					</LightTooltip>
 					<LightTooltip title='Chỉnh sửa thông tin bộ môn'>
-						<IconButton onClick={handleUpdateCurriculum} className='translate-y-[1px] opacity-80'>
+						<IconButton onClick={handleUpdateCurriculum} className='translate-y-px opacity-80'>
 							<Image
 								src='/images/icons/compose.png'
 								alt='Chỉnh sửa'
@@ -74,7 +74,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 							<h2 className='text-body-large-strong'>{subjectGroupDetails?.['curriculum-name']}</h2>
 						) : (
 							<Skeleton
-								className='!text-body-large-strong'
+								className='text-body-large-strong!'
 								animation='wave'
 								variant='text'
 								sx={{ width: '50%' }}
@@ -98,7 +98,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 							</h2>
 						) : (
 							<Skeleton
-								className='!text-body-large-strong'
+								className='text-body-large-strong!'
 								animation='wave'
 								variant='text'
 								sx={{ width: '50%' }}
@@ -113,7 +113,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 							<h2 className='text-body-large-strong'>{subjectGroupDetails?.['curriculum-code']}</h2>
 						) : (
 							<Skeleton
-								className='!text-body-large-strong'
+								className='text-body-large-strong!'
 								animation='wave'
 								variant='text'
 								sx={{ width: '50%' }}
@@ -137,7 +137,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 								{[1, 2, 3, 4].map((item) => (
 									<li key={item}>
 										<Skeleton
-											className='!text-body-large-strong'
+											className='text-body-large-strong!'
 											animation='wave'
 											variant='text'
 											sx={{ width: '80%' }}
@@ -174,7 +174,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 								{[1, 2, 3, 4].map((item) => (
 									<li key={item}>
 										<Skeleton
-											className='!text-body-large-strong'
+											className='text-body-large-strong!'
 											animation='wave'
 											variant='text'
 											sx={{ width: '80%' }}
@@ -209,7 +209,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 								{[1, 2, 3, 4, 5].map((item) => (
 									<li key={item}>
 										<Skeleton
-											className='!text-body-large-strong'
+											className='text-body-large-strong!'
 											animation='wave'
 											variant='text'
 											sx={{ width: '80%' }}
@@ -245,7 +245,7 @@ const CurriculumDetails = (props: ICurriculumDetailsProps) => {
 							{[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
 								<li key={item}>
 									<Skeleton
-										className='!text-body-large-strong'
+										className='text-body-large-strong!'
 										animation='wave'
 										variant='text'
 										sx={{ width: '80%' }}

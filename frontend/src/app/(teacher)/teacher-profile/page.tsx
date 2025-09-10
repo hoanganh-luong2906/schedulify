@@ -73,13 +73,13 @@ export default function ProfilePage() {
             />
             <div className="w-full p-7 flex justify-center">
               {accountData && (
-                <Grid container spacing={2} className="!flex justify-center">
+                <Grid container spacing={2} className="flex! justify-center">
                   <Grid
                     size={{
                       xs: 12,
                       md: 5
                     }}>
-                    <Card className="!w-full !shadow-md !border !border-gray-200 !rounded-lg">
+                    <Card className="w-full! !shadow-md border! !border-gray-200 !rounded-lg">
                       <CardContent>
                         <div className="flex items-center mb-6 justify-between w-full">
                           <div className="flex items-center gap-3">
@@ -104,7 +104,7 @@ export default function ProfilePage() {
                             <div>
                               <Typography
                                 variant="h6"
-                                className="!text-gray-800 !font-semibold"
+                                className="!text-gray-800 font-semibold!"
                               >
                                 {accountData["first-name"]}{" "}
                                 {accountData["last-name"]}
@@ -131,7 +131,7 @@ export default function ProfilePage() {
                           <Button
                             variant="text"
                             onClick={() => setOpenUpdateModal(true)}
-                            className="!text-primary-300 "
+                            className="text-primary-300! "
                           >
                             Cập nhật
                           </Button>

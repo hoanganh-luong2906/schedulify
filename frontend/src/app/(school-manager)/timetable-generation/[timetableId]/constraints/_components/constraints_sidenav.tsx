@@ -51,7 +51,7 @@ const ConstraintsSidenav = (props: IConstraintsSidenavProps) => {
 				>
 					<p
 						className={`text-body-medium font-normal w-full ${
-							currentPath === 'general-configurations' ? ' !font-semibold' : ''
+							currentPath === 'general-configurations' ? ' font-semibold!' : ''
 						}`}
 					>
 						Cấu hình chung
@@ -69,7 +69,7 @@ const ConstraintsSidenav = (props: IConstraintsSidenavProps) => {
 						>
 							<p
 								className={`text-body-medium font-normal w-full ${
-									currentPath === subItem.value ? ' !font-semibold' : ''
+									currentPath === subItem.value ? ' font-semibold!' : ''
 								}`}
 							>
 								{subItem.label}

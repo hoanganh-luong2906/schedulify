@@ -153,7 +153,7 @@ const CurriculumTableSkeleton = () => {
 											<TableCell align='left'>
 												<Skeleton animation='wave' variant='text' />
 											</TableCell>
-											<TableCell align='left' width={200} className='!font-semibold'>
+											<TableCell align='left' width={200} className='font-semibold!'>
 												<Skeleton animation='wave' variant='text' />
 											</TableCell>
 											<TableCell width={80}>

@@ -147,7 +147,7 @@ const AvatarUploader: React.FC<AvatarUploaderProps> = ({
               width={50}
               height={50}
               unoptimized={true}
-              className="!opacity-60"
+              className="opacity-60!"
             />
             <p className="text-body-small w-fit text-justify opacity-70">
               Hãy tải lên ảnh của bạn.
@@ -203,7 +203,7 @@ const AvatarUploader: React.FC<AvatarUploaderProps> = ({
           title="Huỷ"
           onClick={handleClose}
           disableRipple
-          styles="!bg-basic-gray-active !text-basic-gray !py-1 px-4"
+          styles="bg-basic-gray-active! text-basic-gray! !py-1 px-4"
         />
       </div>
     </Dialog>

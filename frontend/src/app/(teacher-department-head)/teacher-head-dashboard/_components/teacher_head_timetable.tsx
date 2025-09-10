@@ -198,7 +198,7 @@ export default function TeacherHeadTimetableTable({
           <Button
             variant="contained"
             size="medium"
-            className="!bg-primary-500 !hover:bg-primary-600 text-white px-8 py-3 rounded-s 
+            className="bg-primary-500! !hover:bg-primary-600 text-white px-8 py-3 rounded-s 
                    transform transition-all duration-300 hover:scale-105 hover:shadow-lg
                    flex items-center gap-2"
             onClick={() => router.push(`/timetable-generation`)}
@@ -258,8 +258,8 @@ export default function TeacherHeadTimetableTable({
                             sx={cellStyle}
                             className={`${
                               sessionIndex < 2
-                                ? "!text-primary-400"
-                                : "!text-tertiary-normal"
+                                ? "text-primary-400!"
+                                : "text-tertiary-normal!"
                             }`}
                           >
                             {sessionIndex * 5 + slotIndex + 1}

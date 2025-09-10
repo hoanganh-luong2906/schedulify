@@ -14,7 +14,7 @@ const LandingDescription = () => {
 			</div>
 			<div className='hidden md:block absolute bottom-0 left-[15%] overflow-hidden w-[200px] h-[250px]'>
 				<Image
-					className='w-full h-full object-right-top aspect-auto -scale-x-100'
+					className='w-full h-full object-top-right aspect-auto -scale-x-100'
 					src='/images/landing-schedule-decorator1.jpg'
 					alt='dec'
 					unoptimized={true}
@@ -25,7 +25,7 @@ const LandingDescription = () => {
 			</div>
 			<div className='hidden md:block absolute bottom-[10%] left-[30%] z-[-1] overflow-hidden w-[300px] h-[350px]'>
 				<Image
-					className='w-full h-full object-none object-right-top'
+					className='w-full h-full object-none object-top-right'
 					src='/images/landing-schedule-decorator2.png'
 					alt='dec'
 					unoptimized={true}
@@ -51,7 +51,7 @@ const LandingDescription = () => {
 					</p>
 					<Link
 						href={'#'}
-						className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-md bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
+						className='flex justify-center gap-2 items-center border-b-2 border-primary-600 text-md bg-gray-50 lg:font-semibold isolation-auto before:absolute before:w-full before:transition-all before:duration-700 hover:before:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-primary-400 hover:text-gray-50 before:-z-10 before:aspect-square hover:before:scale-150 hover:before:duration-700 relative z-10 px-4 py-1 overflow-hidden group'
 					>
 						Tìm hiểu thêm
 						<svg

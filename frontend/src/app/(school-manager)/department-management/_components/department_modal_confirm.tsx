@@ -67,7 +67,7 @@ const CreateConfirmationModal = (props: ICurriculumConfirmModalProps) => {
 						title='Huỷ'
 						onClick={handleClose}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-3'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-3'
 					/>
 					<ContainedButton
 						title='xác nhận'

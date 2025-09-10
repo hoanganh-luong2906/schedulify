@@ -56,7 +56,7 @@ const ClassFilterable = (props: IClassFilterableProps) => {
           </IconButton>
         </div>
         <FormControl fullWidth variant="filled" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="grade-select-label" className="!text-body-xlarge font-normal">
+          <InputLabel id="grade-select-label" className="text-body-xlarge! font-normal">
             Khối
           </InputLabel>
           <Select

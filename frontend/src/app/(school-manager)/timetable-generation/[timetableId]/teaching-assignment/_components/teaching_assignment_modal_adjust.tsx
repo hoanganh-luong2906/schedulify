@@ -383,7 +383,7 @@ const TeachingAssignmentAdjustModal = (props: IApplyModalProps) => {
 						classData={sidenavData}
 						setSelectedGrade={setSelectedGrade}
 					/>
-					<div className='w-full h-[60vh] pb-[1px] flex flex-col justify-start items-center overflow-y-scroll no-scrollbar'>
+					<div className='w-full h-[60vh] pb-px flex flex-col justify-start items-center overflow-y-scroll no-scrollbar'>
 						{selectedAssignments.map((assignment: IAssignmentResponse) => {
 							const editedObject = editingObjects.find(
 								(obj) => obj['assignment-id'] === assignment.id
@@ -436,7 +436,7 @@ const TeachingAssignmentAdjustModal = (props: IApplyModalProps) => {
 						title='Huỷ'
 						onClick={() => setIsCancelModalOpen(true)}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-4'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-4'
 					/>
 					<ContainedButton
 						title='áp dụng phân công'

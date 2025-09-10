@@ -346,7 +346,7 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 							))}
 						</TextField>
 						{selectedSlot && selectedTarget && (
-							<div className='w-[10vw] absolute top-[50%] right-[0%] -translate-y-[50%]'>
+							<div className='w-[10vw] absolute top-[50%] right-[0%] translate-y-[-50%]'>
 								<Button
 									variant='contained'
 									color='success'
@@ -440,7 +440,7 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 						title='Huỷ'
 						onClick={() => setIsCloseConfirmModalOpen(true)}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-4'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-4'
 					/>
 					<ContainedButton
 						title='lưu thay đổi'

@@ -21,7 +21,7 @@ export default function Home() {
 					width={100}
 					height={100}
 					unoptimized={true}
-					className='!opacity-60'
+					className='opacity-60!'
 				/>
 				<h1 className='text-title-medium-strong w-[35vw] text-justify'>
 					Nhập dữ liệu Thời khóa biểu từ bên ngoài vào hệ thống

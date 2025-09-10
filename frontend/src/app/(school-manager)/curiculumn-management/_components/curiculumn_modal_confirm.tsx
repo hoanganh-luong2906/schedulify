@@ -66,7 +66,7 @@ const ApllyConfirmationModal = (props: ICurriculumConfirmModalProps) => {
 							<h2 className='text-body-medium-strong font-normal text-tertiary-normal'>
 								Những lớp học sau sẽ được cập nhật Khung chương trình môn
 							</h2>
-							<ul className='!list-disc pl-2'>
+							<ul className='list-disc! pl-2'>
 								{vulnerableClasses.map((item, index) => (
 									<li
 										key={index}
@@ -97,7 +97,7 @@ const ApllyConfirmationModal = (props: ICurriculumConfirmModalProps) => {
 						title='Huỷ'
 						onClick={handleClose}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-3'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-3'
 					/>
 					<ContainedButton
 						title='xác nhận'

@@ -98,11 +98,11 @@ const CurriculumSideNav = (props: CurriculumSidenavProps) => {
 					<AccordionSummary
 						aria-controls={`panel${index}d-content`}
 						id={`panel${index}d-header`}
-						className='!text-black !bg-basic-gray-hover '
+						className='!text-black bg-basic-gray-hover! '
 					>
-						<Typography className='!text-body-large-strong'>{item.title}</Typography>
+						<Typography className='text-body-large-strong!'>{item.title}</Typography>
 					</AccordionSummary>
-					<AccordionDetails className='!w-full !p-0'>
+					<AccordionDetails className='w-full! !p-0'>
 						{item.items.map((subjectGroup, id: number) => (
 							<div
 								key={subjectGroup.key + id}
@@ -119,7 +119,7 @@ const CurriculumSideNav = (props: CurriculumSidenavProps) => {
 										inter.className
 									} antialiased text-body-medium font-normal opacity-90 ${
 										selectedCurriculum === subjectGroup.value
-											? ' !font-medium'
+											? ' font-medium!'
 											: ''
 									}`}
 								>

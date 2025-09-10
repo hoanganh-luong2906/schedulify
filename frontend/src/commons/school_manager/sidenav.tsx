@@ -113,7 +113,7 @@ const SMSidenav = () => {
 							<AccordionSummary
 								aria-controls={`panel${index}d-content`}
 								id={`panel${index}d-header`}
-								className='!text-primary-500 !bg-basic-gray-hover'
+								className='text-primary-500! bg-basic-gray-hover!'
 							>
 								<Typography sx={{ userSelect: 'none' }}>{item.category}</Typography>
 							</AccordionSummary>
@@ -136,7 +136,7 @@ const SMSidenav = () => {
 										<p
 											className={`text-body-medium font-normal select-none ${
 												currentPath.startsWith(subItem.url)
-													? ' !font-semibold'
+													? ' font-semibold!'
 													: ''
 											}`}
 										>

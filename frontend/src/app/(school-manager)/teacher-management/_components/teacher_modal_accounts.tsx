@@ -232,7 +232,7 @@ const TeacherAccountModal = (props: IPublishTimetableConfirmModalProps) => {
 					<Typography
 						variant='h6'
 						component='h2'
-						className='text-title-large-strong font-semibold !opacity-80'
+						className='text-title-large-strong font-semibold opacity-80!'
 					>
 						Tài khoản giáo viên
 					</Typography>

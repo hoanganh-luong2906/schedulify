@@ -230,9 +230,9 @@ const TeacherHeadHeader = ({ children }: { children: ReactNode }) => {
                     checked={!isMenuOpen}
                     onClick={handleToggleMenu}
                   />
-                  <div className="w-[50%] h-[2px] bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:rotate-[-45deg]" />
+                  <div className="w-[50%] h-[2px] bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45" />
                   <div className="w-[50%] h-[2px] bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden" />
-                  <div className="w-[50%] h-[2px] bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-[45deg]" />
+                  <div className="w-[50%] h-[2px] bg-white rounded-md transition-all duration-300 origin-left translate-y-[-0.45rem] peer-checked:rotate-45" />
                 </div>
               </label>
             </LightTooltip>
@@ -261,7 +261,7 @@ const TeacherHeadHeader = ({ children }: { children: ReactNode }) => {
               {showNotifications && (
                 <div
                   ref={notificationRef}
-                  className="absolute right-0 top-12 min-w-96 bg-white rounded-lg shadow-lg z-[1000] max-h-96 overflow-y-auto no-scrollbar "
+                  className="absolute right-0 top-12 min-w-96 bg-white rounded-lg shadow-lg z-1000 max-h-96 overflow-y-auto no-scrollbar "
                 >
                   <div className="p-4">
                     <div className="flex justify-between items-center mb-2">

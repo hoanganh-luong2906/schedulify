@@ -81,14 +81,14 @@ const TeacherInactiveModal = (props: ITeacherInactiveModalProps) => {
 						disableRipple
 						disabled={isButtonClicked}
 						type='button'
-						styles='!bg-basic-negative !text-white !py-1 px-3'
+						styles='bg-basic-negative! !text-white !py-1 px-3'
 						onClick={handleProcess}
 					/>
 					<ContainedButton
 						title='hủy'
 						disableRipple
 						onClick={handleClose}
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-3'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-3'
 					/>
 				</div>
 			</Box>

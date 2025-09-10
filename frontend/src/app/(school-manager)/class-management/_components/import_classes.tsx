@@ -312,7 +312,7 @@ const ImportClassSelectModal: React.FC<ImportClassSelectModalProps> = ({
               width={100}
               height={100}
               unoptimized={true}
-              className="!opacity-60"
+              className="opacity-60!"
             />
             <p className="text-body-small w-[35vw] text-justify opacity-70">
               Hãy tải lên tệp dữ liệu lớp học từ thiết bị của bạn. Vui lòng đảm
@@ -432,7 +432,7 @@ const ImportClassSelectModal: React.FC<ImportClassSelectModalProps> = ({
           title="Huỷ"
           onClick={handleClose}
           disableRipple
-          styles="!bg-basic-gray-active !text-basic-gray !py-1 px-4"
+          styles="bg-basic-gray-active! text-basic-gray! !py-1 px-4"
         />
       </div>
     </Dialog>

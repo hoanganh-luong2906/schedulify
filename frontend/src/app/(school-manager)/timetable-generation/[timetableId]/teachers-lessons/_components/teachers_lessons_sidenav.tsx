@@ -142,11 +142,11 @@ const TeachersLessonsSideNav = (props: TeachersLessonsSidenavProps) => {
 					<AccordionSummary
 						aria-controls={`panel${index}d-content`}
 						id={`panel${index}d-header`}
-						className='!text-black !bg-basic-gray-hover '
+						className='!text-black bg-basic-gray-hover! '
 					>
-						<Typography className='!text-body-large-strong'>{grade.title}</Typography>
+						<Typography className='text-body-large-strong!'>{grade.title}</Typography>
 					</AccordionSummary>
-					<AccordionDetails className='!w-full !p-0'>
+					<AccordionDetails className='w-full! !p-0'>
 						{grade.items.map((gradeClass, id: number) => (
 							<div
 								key={gradeClass.key + id}
@@ -164,7 +164,7 @@ const TeachersLessonsSideNav = (props: TeachersLessonsSidenavProps) => {
 									className={`${
 										inter.className
 									} antialiased text-body-medium font-normal opacity-90 ${
-										selectedClass === gradeClass.value ? ' !font-medium' : ''
+										selectedClass === gradeClass.value ? ' font-medium!' : ''
 									}`}
 								>
 									{gradeClass.key}

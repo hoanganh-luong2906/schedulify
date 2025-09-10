@@ -430,7 +430,7 @@ const TimetableDuplicationModal = (props: ITimetableDuplicationModalProps) => {
 						title='Huỷ'
 						onClick={handleClose}
 						disableRipple
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-4'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-4'
 					/>
 					<ContainedButton
 						title='nhân bản tkb'

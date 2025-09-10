@@ -162,7 +162,7 @@ export default function TimetableDetail() {
 			{activeTab === 1 && (
 				<>
 					{!isLoading && !scheduleData ? (
-						<div className='flex flex-col justify-center items-center w-full h-full gap-8 bg-gradient-to-b from-gray-50 to-white p-12 rounded-xl shadow-xl'>
+						<div className='flex flex-col justify-center items-center w-full h-full gap-8 bg-linear-to-b from-gray-50 to-white p-12 rounded-xl shadow-xl'>
 							<div className='flex justify-center transform transition-all duration-500 hover:scale-110'>
 								<Image
 									src='/images/icons/empty-folder.png'
@@ -186,7 +186,7 @@ export default function TimetableDetail() {
 							<Button
 								variant='contained'
 								size='medium'
-								className='!bg-primary-500 !hover:bg-primary-600 text-white px-8 py-3 rounded-s transform transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2'
+								className='bg-primary-500! !hover:bg-primary-600 text-white px-8 py-3 rounded-s transform transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center gap-2'
 								onClick={() => router.push(`/timetable-generation/${timetableId}/information`)}
 							>
 								<AddIcon />
@@ -229,7 +229,7 @@ export default function TimetableDetail() {
 							}}
 						/>
 						<div className='flex justify-end mt-4'>
-							<Button variant='contained' className='!bg-primary-500' onClick={() => {}}>
+							<Button variant='contained' className='bg-primary-500!' onClick={() => {}}>
 								Lưu ghi chú
 							</Button>
 						</div>

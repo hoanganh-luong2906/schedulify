@@ -91,13 +91,13 @@ export default function TeacherDetails() {
                   mutate={mutate}
                 />
                 {teacherData && (
-                  <Grid container spacing={2} className="!flex justify-center">
+                  <Grid container spacing={2} className="flex! justify-center">
                     <Grid
                       size={{
                         xs: 12,
                         md: 5
                       }}>
-                      <Card className="!w-full !shadow-md !border !border-gray-200 !rounded-lg">
+                      <Card className="w-full! !shadow-md border! !border-gray-200 !rounded-lg">
                         <CardContent>
                           <div className="flex items-center mb-6 justify-between w-full">
                             <div className="flex items-center">
@@ -108,7 +108,7 @@ export default function TeacherDetails() {
                               <div>
                                 <Typography
                                   variant="h6"
-                                  className="!text-gray-800 !font-semibold"
+                                  className="!text-gray-800 font-semibold!"
                                 >
                                   {teacherData["first-name"]}{" "}
                                   {teacherData["last-name"]}
@@ -139,7 +139,7 @@ export default function TeacherDetails() {
                             <Button
                               variant="text"
                               onClick={() => setOpenUpdateModal(true)}
-                              className="!text-primary-300 "
+                              className="text-primary-300! "
                             >
                               Cập nhật
                             </Button>
@@ -150,7 +150,7 @@ export default function TeacherDetails() {
                           {/* Personal Information Section */}
                           <Typography
                             variant="h6"
-                            className="!text-gray-800 !font-semibold !mb-4"
+                            className="!text-gray-800 font-semibold! !mb-4"
                           >
                             Thông tin cá nhân
                           </Typography>

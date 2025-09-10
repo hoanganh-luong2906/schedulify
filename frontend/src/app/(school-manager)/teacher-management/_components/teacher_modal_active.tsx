@@ -80,14 +80,14 @@ const TeacherActiveModal = (props: ITeacherActiveModalProps) => {
 						title='hủy'
 						disableRipple
 						onClick={handleClose}
-						styles='!bg-basic-gray-active !text-basic-gray !py-1 px-3'
+						styles='bg-basic-gray-active! text-basic-gray! !py-1 px-3'
 					/>
 					<ContainedButton
 						title='xác nhận'
 						disableRipple
 						disabled={isButtonClicked}
 						type='button'
-						styles='!bg-basic-positive !text-white !py-1 px-3'
+						styles='bg-basic-positive! !text-white !py-1 px-3'
 						onClick={handleProcess}
 					/>
 				</div>
