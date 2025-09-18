@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SchedulifySystem.Repository.EntityModels
 {
-    public class Holiday
+    public partial class Holiday : BaseEntity
     {
-        public int HolidayId { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
     }
