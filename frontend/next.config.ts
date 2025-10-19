@@ -1,9 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-	sassOptions: {
-		implementation: 'sass-embedded',
-	},
+	// self-contained server bundle for the Docker image
+	output: 'standalone',
 };
 
 export default nextConfig;
