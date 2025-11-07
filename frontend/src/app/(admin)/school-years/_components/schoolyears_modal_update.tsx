@@ -146,7 +146,7 @@ const SchoolYearUpdateModal = (props: ISchoolYearUpdateModalProps) => {
 	};
 
 	return (
-		<Modal
+        <Modal
 			open={open}
 			onClose={handleClose}
 			aria-labelledby='keep-mounted-modal-title'
@@ -155,7 +155,7 @@ const SchoolYearUpdateModal = (props: ISchoolYearUpdateModalProps) => {
 			disableAutoFocus
 			disableRestoreFocus
 		>
-			<Box sx={style}>
+            <Box sx={style}>
 				<div
 					id='modal-header'
 					className='w-full h-fit flex flex-row justify-between items-center bg-basic-gray-hover p-3 py-1'
@@ -191,11 +191,13 @@ const SchoolYearUpdateModal = (props: ISchoolYearUpdateModalProps) => {
 							variant='standard'
 							margin='dense'
 							type='number'
-							inputProps={{ min: currentYear }}
 							value={editingObject['start-year']}
 							onChange={(e) => handleStartYearChange(e.target.value)}
 							error={yearError !== null}
 							helperText={yearError !== null ? yearError : ''}
+							slotProps={{
+                                htmlInput: { min: currentYear }
+                            }}
 						/>
 
 						<h1 className='text-title-xl font-normal text-primary-400 translate-y-1'></h1>
@@ -206,8 +208,10 @@ const SchoolYearUpdateModal = (props: ISchoolYearUpdateModalProps) => {
 							margin='dense'
 							disabled
 							type='number'
-							inputProps={{ min: editingObject['start-year'] }}
 							value={editingObject['end-year']}
+							slotProps={{
+                                htmlInput: { min: editingObject['start-year'] }
+                            }}
 						/>
 					</div>
 
@@ -262,8 +266,8 @@ const SchoolYearUpdateModal = (props: ISchoolYearUpdateModalProps) => {
 					/>
 				</div>
 			</Box>
-		</Modal>
-	);
+        </Modal>
+    );
 };
 
 export default SchoolYearUpdateModal;

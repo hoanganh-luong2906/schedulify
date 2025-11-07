@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { ACCOUNT_STATUS } from '../../_utils/constants';
 import { IAccountResponse } from '../_libs/constants';
 import DashboardConfirmModal from './dashboard_modal_confirm';
-import zIndex from '@mui/material/styles/zIndex';
 import DashboardRejectModal from './dashboard_modal_reject';
 
 const style = {

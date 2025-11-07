@@ -68,8 +68,8 @@ interface EnhancedTableProps {
 function EnhancedTableHead(props: EnhancedTableProps) {
 	const { totalSlot } = props;
 	return (
-		<TableHead>
-			<TableRow>
+        <TableHead>
+            <TableRow>
 				<TableCell
 					rowSpan={2}
 					align={headCells[0].centered ? 'center' : 'left'}
@@ -166,7 +166,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 					<p className='!italic !text-[11px] !font-light opacity-60'>(Chỉ đọc)</p>
 				</TableCell>
 			</TableRow>
-			<TableRow>
+            <TableRow>
 				<TableCell
 					align={headCells[3].centered ? 'center' : 'left'}
 					padding={headCells[3].disablePadding ? 'none' : 'normal'}
@@ -181,10 +181,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Tổng số tiết mỗi tuần{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['main-slot-per-week'] > 30 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['main-slot-per-week'] > 30 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['main-slot-per-week'] ?? 0})
 					</Typography>
 				</TableCell>
@@ -203,10 +204,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Số tiết cặp tối thiểu{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['main-minimum-couple'] > 12 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['main-minimum-couple'] > 12 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['main-minimum-couple'] ?? 0})
 					</Typography>
 				</TableCell>
@@ -225,10 +227,11 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Tổng số tiết mỗi tuần{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['sub-slot-per-week'] > 30 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['sub-slot-per-week'] > 30 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['sub-slot-per-week'] ?? 0})
 					</Typography>
 				</TableCell>
@@ -247,16 +250,17 @@ function EnhancedTableHead(props: EnhancedTableProps) {
 				>
 					Số tiết cặp tối thiểu{' '}
 					<Typography
-						fontSize={12}
-						fontStyle={'normal'}
-						color={totalSlot?.['sub-minimum-couple'] > 12 ? 'error' : 'black'}
-					>
+                        color={totalSlot?.['sub-minimum-couple'] > 12 ? 'error' : 'black'}
+                        sx={{
+                            fontSize: 12,
+                            fontStyle: 'normal'
+                        }}>
 						({totalSlot?.['sub-minimum-couple'] ?? 0})
 					</Typography>
 				</TableCell>
 			</TableRow>
-		</TableHead>
-	);
+        </TableHead>
+    );
 }
 const LessonTableSkeleton = () => {
 	return (

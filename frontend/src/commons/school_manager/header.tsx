@@ -315,8 +315,10 @@ const SMHeader = ({ children }: { children: ReactNode }) => {
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
+            slotProps={{
+              list: {
+                "aria-labelledby": "basic-button",
+              }
             }}
           >
             {schoolYearOptions.map((option, index) => (

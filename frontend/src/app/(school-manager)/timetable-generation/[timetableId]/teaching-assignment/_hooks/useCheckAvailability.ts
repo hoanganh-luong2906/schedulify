@@ -1,5 +1,4 @@
 import { ICommonResponse } from '@/utils/constants';
-import { headers } from 'next/headers';
 import {
 	IAutoTeacherAssingmentRequest,
 	ITeachingAssignmentAvailabilityResponse,

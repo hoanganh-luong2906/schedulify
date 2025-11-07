@@ -151,8 +151,8 @@ const AdminHeader = ({ children }: { children: ReactNode }) => {
 	// };
 
 	return (
-		<div className='w-full min-h-[50px] bg-primary-500 flex flex-row justify-between items-center pl-[1.5vw] pr-2'>
-			<div className='w-fit h-full flex flex-row justify-start items-center gap-5'>
+        <div className='w-full min-h-[50px] bg-primary-500 flex flex-row justify-between items-center pl-[1.5vw] pr-2'>
+            <div className='w-fit h-full flex flex-row justify-start items-center gap-5'>
 				<LightTooltip
 					title={!isMenuOpen ? 'Thu gọn Menu' : 'Mở rộng menu'}
 					placement='bottom'
@@ -168,7 +168,7 @@ const AdminHeader = ({ children }: { children: ReactNode }) => {
 				</LightTooltip>
 				{children}
 			</div>
-			<div className='flex flex-row justify-end items-center'>
+            <div className='flex flex-row justify-end items-center'>
 				{/* <div className='relative'>
 					<IconButton color='primary' onClick={() => setShowNotifications(!showNotifications)}>
 						<div className='relative'>
@@ -256,9 +256,11 @@ const AdminHeader = ({ children }: { children: ReactNode }) => {
 						anchorEl={anchorEl}
 						open={open}
 						onClose={handleClose}
-						MenuListProps={{
-							'aria-labelledby': 'basic-button',
-						}}
+						slotProps={{
+                            list: {
+                                'aria-labelledby': 'basic-button',
+                            }
+                        }}
 					>
 						{schoolYearOptions.map((option, index) => (
 							<MenuItem
@@ -280,8 +282,8 @@ const AdminHeader = ({ children }: { children: ReactNode }) => {
 					/>
 				</IconButton>
 			</div>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default AdminHeader;

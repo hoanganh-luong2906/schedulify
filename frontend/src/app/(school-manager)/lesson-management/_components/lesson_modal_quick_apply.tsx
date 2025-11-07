@@ -432,14 +432,14 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 	};
 
 	return (
-		<Modal
+        <Modal
 			disableEnforceFocus
 			disableAutoFocus
 			disableRestoreFocus
 			open={open}
 			onClose={handleClose}
 		>
-			<Box sx={style}>
+            <Box sx={style}>
 				<div
 					id='modal-header'
 					className='w-full h-fit flex flex-row justify-between items-center bg-primary-50 p-3 py-2'
@@ -538,7 +538,11 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 													</IconButton>
 												</TableCell>
 												<TableCell colSpan={1} width={280}>
-													<Typography fontSize={15} width={280}>
+													<Typography
+                                                        sx={{
+                                                            fontSize: 15,
+                                                            width: 280
+                                                        }}>
 														{key}
 													</Typography>
 												</TableCell>
@@ -566,7 +570,7 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 															item['term-id'] === row['term-id']
 													) ?? undefined;
 												return (
-													<TableRow
+                                                    <TableRow
 														sx={[
 															{ '& > *': { borderBottom: 'unset' } },
 															editedObject !== undefined && {
@@ -580,7 +584,7 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 															},
 														]}
 													>
-														<TableCell
+                                                        <TableCell
 															style={{
 																paddingBottom: 0,
 																paddingTop: 0,
@@ -606,9 +610,10 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 																</TableCell>
 																<TableCell align='left' width={300}>
 																	<Typography
-																		fontSize={15}
-																		width={300}
-																	>
+                                                                        sx={{
+                                                                            fontSize: 15,
+                                                                            width: 300
+                                                                        }}>
 																		{row['subject-name']}
 																	</Typography>
 																</TableCell>
@@ -840,16 +845,18 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 																						'is-double-period'
 																				  ]
 																		}
-																		inputProps={{
-																			'aria-labelledby':
-																				labelId,
-																		}}
+																		slotProps={{
+                                                                            input: {
+                                                                                'aria-labelledby':
+                                                                                    labelId,
+                                                                            }
+                                                                        }}
 																	/>
 																</TableCell>
 															</Collapse>
 														</TableCell>
-													</TableRow>
-												);
+                                                    </TableRow>
+                                                );
 											})}
 										</Fragment>
 									))}
@@ -882,8 +889,8 @@ const LessonQuickApplyModal = (props: IQuickApplyModalProps) => {
 					setSelectedCurriculumIds={setSelectedCurriculumIds}
 				/>
 			</Box>
-		</Modal>
-	);
+        </Modal>
+    );
 };
 
 export default LessonQuickApplyModal;

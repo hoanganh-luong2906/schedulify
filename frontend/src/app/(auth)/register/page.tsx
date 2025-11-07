@@ -1,7 +1,7 @@
 "use client";
 import { RegisterForm } from "./_components/register_form";
 
-const RegisterPage = (): JSX.Element => {
+const RegisterPage = (): React.JSX.Element => {
   return (
     <div className="w-screen h-fit flex flex-col justify-start items-center mt-12 mb-3">
       <h1 className="text-title-xl-strong uppercase font-semibold">

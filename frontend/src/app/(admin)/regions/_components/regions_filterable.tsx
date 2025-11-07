@@ -1,5 +1,5 @@
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutlined';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutlined';
 import {
 	Box,
 	Button,
@@ -367,12 +367,12 @@ const RegionsFilterable = (props: IAccountsFilterableProps) => {
 	};
 
 	return (
-		<div
+        <div
 			className={`opacity-0 h-full w-[35%] flex flex-col justify-start items-center pt-[3vh] gap-3 transition-all duration-300 ease-in-out transform ${
 				open ? 'translate-x-0 opacity-100' : '!w-0 translate-x-full opacity-0'
 			}`}
 		>
-			<Paper className='w-full p-3 flex flex-col justify-start items-center gap-3'>
+            <Paper className='w-full p-3 flex flex-col justify-start items-center gap-3'>
 				<div className='w-full flex flex-row justify-between items-center pt-1'>
 					<Typography variant='h6' className='text-title-small-strong font-normal w-full text-left'>
 						{isUpdateAction ? 'Cập nhật' : 'Thêm'} vùng miền
@@ -410,7 +410,14 @@ const RegionsFilterable = (props: IAccountsFilterableProps) => {
 										exitActive: styles.rowExitActive,
 									}}
 								>
-									<Box display='flex' alignItems='center' mb={1} key={index} width={'100%'}>
+									<Box
+                                        key={index}
+                                        sx={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            mb: 1,
+                                            width: '100%'
+                                        }}>
 										<TextField
 											fullWidth
 											inputRef={(ref) => setRef(index, ref)}
@@ -495,8 +502,8 @@ const RegionsFilterable = (props: IAccountsFilterableProps) => {
 					handleConfirm={handleSaveChanges}
 				/>
 			</Paper>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default RegionsFilterable;

@@ -255,7 +255,7 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 	};
 
 	return (
-		<Modal
+        <Modal
 			disableEnforceFocus
 			disableAutoFocus
 			disableRestoreFocus
@@ -264,7 +264,7 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 			aria-labelledby='keep-mounted-modal-title'
 			aria-describedby='keep-mounted-modal-description'
 		>
-			<Box sx={style}>
+            <Box sx={style}>
 				<div
 					id='modal-header'
 					className='w-full h-fit flex flex-row justify-between items-center bg-primary-50 p-3 py-1'
@@ -307,12 +307,14 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 							variant='outlined'
 							onChange={(event) => setSelectedClassId(Number(event.target.value))}
 							sx={{ width: '20%' }}
-							InputProps={{
-								sx: {
-									height: 45,
-									paddingTop: '2px',
-								},
-							}}
+							slotProps={{
+                                input: {
+                                    sx: {
+                                        height: 45,
+                                        paddingTop: '2px',
+                                    },
+                                }
+                            }}
 						>
 							{classOptions.map((option: IDropdownOption<number>, index: number) => (
 								<MenuItem value={option.value} key={index}>
@@ -328,12 +330,14 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 							variant='outlined'
 							onChange={(event) => setSelectedSession(Number(event.target.value))}
 							sx={{ width: '20%' }}
-							InputProps={{
-								sx: {
-									height: 45,
-									paddingTop: '2px',
-								},
-							}}
+							slotProps={{
+                                input: {
+                                    sx: {
+                                        height: 45,
+                                        paddingTop: '2px',
+                                    },
+                                }
+                            }}
 						>
 							{sessionOptions.map((option: IDropdownOption<number>, index: number) => (
 								<MenuItem value={option.value} key={index}>
@@ -457,8 +461,8 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 					handleApprove={handleApplyChanges}
 				/>
 			</Box>
-		</Modal>
-	);
+        </Modal>
+    );
 };
 
 export default PublishTimetableEditModal;

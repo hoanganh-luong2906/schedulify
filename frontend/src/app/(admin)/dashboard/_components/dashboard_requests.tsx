@@ -78,8 +78,8 @@ const DashboardRequests: FC<IDashboardRequestsProps> = (props) => {
 	}, [data]);
 
 	return (
-		<div className='w-full h-fit mb-[5vh]'>
-			<div className='relative p-4'>
+        <div className='w-full h-fit mb-[5vh]'>
+            <div className='relative p-4'>
 				<h2 className='text-body-xlarge font-semibold sticky top-0 left-0 z-10 bg-white px-2 py-3'>
 					Đơn đăng ký trường ({sortedData.length})
 				</h2>
@@ -125,7 +125,9 @@ const DashboardRequests: FC<IDashboardRequestsProps> = (props) => {
 												borderRadius: 0,
 											}}
 										>
-											<Typography fontSize={13}>Xem chi tiết</Typography>
+											<Typography sx={{
+                                                fontSize: 13
+                                            }}>Xem chi tiết</Typography>
 										</Button>
 									</div>
 								</div>
@@ -172,7 +174,9 @@ const DashboardRequests: FC<IDashboardRequestsProps> = (props) => {
 											borderRadius: 0,
 										}}
 									>
-										<Typography fontSize={13}>Xem chi tiết</Typography>
+										<Typography sx={{
+                                            fontSize: 13
+                                        }}>Xem chi tiết</Typography>
 									</Button>
 								</div>
 							</div>
@@ -180,14 +184,14 @@ const DashboardRequests: FC<IDashboardRequestsProps> = (props) => {
 					))}
 				</div>
 			</div>
-			<DashboardRequestModal
+            <DashboardRequestModal
 				selectedAccount={selectedAccount}
 				open={isConfirmRequestOpen}
 				setOpen={setIsConfirmRequestOpen}
 				handleProcess={handleProcessRequest}
 			/>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default DashboardRequests;

@@ -3,7 +3,7 @@ import { INavigation } from '@/utils/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Footer = (): JSX.Element => {
+const Footer = (): React.JSX.Element => {
 	const footerLinks: INavigation[] = NAV_LINKS;
 
 	return (

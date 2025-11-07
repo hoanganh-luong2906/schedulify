@@ -131,18 +131,14 @@ const UpdateBuildingModal = (props: UpdateBuildingFormProps) => {
       <form onSubmit={formik.handleSubmit}>
         <DialogContent>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tên tòa nhà
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -158,19 +154,15 @@ const UpdateBuildingModal = (props: UpdateBuildingFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Mã tòa nhà
                   </Typography>
                 </Grid>
 
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -192,19 +184,15 @@ const UpdateBuildingModal = (props: UpdateBuildingFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Mô tả
                   </Typography>
                 </Grid>
 
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -225,18 +213,14 @@ const UpdateBuildingModal = (props: UpdateBuildingFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Số lượng tầng
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth

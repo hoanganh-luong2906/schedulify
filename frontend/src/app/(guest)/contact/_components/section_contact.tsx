@@ -2,15 +2,16 @@ import { Button, Checkbox, FormControlLabel, TextField, Typography, Box } from '
 
 const ContactSection = () => {
 	return (
-		<section className='w-full py-12'>
-			<Box className='container mx-auto' sx={{ maxWidth: '1000px' }}>
+        <section className='w-full py-12'>
+            <Box className='container mx-auto' sx={{ maxWidth: '1000px' }}>
 				<Box
-					display='flex'
-					flexDirection={{ xs: 'column', md: 'row' }}
-					justifyContent='space-evenly'
-					gap={4}
-					px={2}
-				>
+                    sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        justifyContent: 'space-evenly',
+                        gap: 4,
+                        px: 2
+                    }}>
 					{/* Left Form */}
 					<Box sx={{ flex: 1, maxWidth: '580px' }}>
 						<Typography variant='h4' sx={{ marginBottom: '1.5rem', fontWeight: 600 }}>
@@ -18,7 +19,12 @@ const ContactSection = () => {
 						</Typography>
 
 						<form className='space-y-6'>
-							<Box display='flex' gap={2} flexDirection={{ xs: 'column', sm: 'row' }}>
+							<Box
+                                sx={{
+                                    display: 'flex',
+                                    gap: 2,
+                                    flexDirection: { xs: 'column', sm: 'row' }
+                                }}>
 								<TextField id='full-name' label='Họ và tên' fullWidth variant='standard' />
 								<TextField id='phone-number' label='Số điện thoại' fullWidth variant='standard' />
 							</Box>
@@ -34,7 +40,12 @@ const ContactSection = () => {
 								variant='standard'
 							/>
 
-							<Box display='flex' justifyContent='space-between' alignItems='center'>
+							<Box
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center'
+                                }}>
 								<FormControlLabel
 									control={<Checkbox color='primary' />}
 									label='Đăng ký nhận thông tin từ chúng tôi'
@@ -82,8 +93,8 @@ const ContactSection = () => {
 					</Box>
 				</Box>
 			</Box>
-		</section>
-	);
+        </section>
+    );
 };
 
 export default ContactSection;

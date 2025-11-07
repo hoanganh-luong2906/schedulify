@@ -43,12 +43,12 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 	};
 
 	return (
-		<div
+        <div
 			className={`opacity-0 h-full w-[23%] flex flex-col justify-start items-center pt-1 gap-3 transition-all duration-300 ease-in-out transform ${
 				open ? 'translate-x-0 opacity-100' : '!w-0 translate-x-full opacity-0'
 			}`}
 		>
-			<Paper className='w-full p-3 flex flex-col justify-start items-center gap-3'>
+            <Paper className='w-full p-3 flex flex-col justify-start items-center gap-3'>
 				<div className='w-full flex flex-row justify-between items-center pt-1'>
 					<Typography variant='h6' className='text-title-small-strong font-normal w-full text-left'>
 						Bộ lọc
@@ -91,15 +91,17 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 						value={selectedProvinceId}
 						onChange={(event) => setSelectedProvinceId(Number(event.target.value))}
 						MenuProps={{
-							PaperProps: {
-								style: {
-									maxHeight: 200, // Giới hạn chiều cao danh sách
-									overflow: 'auto', // Thêm cuộn nếu danh sách vượt quá chiều cao
-									msOverflowStyle: 'none',
-									/* IE and Edge */
-									scrollbarWidth: 'none',
-								},
-							},
+							slotProps: {
+                                paper: {
+                                    style: {
+                                        maxHeight: 200, // Giới hạn chiều cao danh sách
+                                        overflow: 'auto', // Thêm cuộn nếu danh sách vượt quá chiều cao
+                                        msOverflowStyle: 'none',
+                                        /* IE and Edge */
+                                        scrollbarWidth: 'none',
+                                    },
+                                }
+                            },
 						}}
 					>
 						<MenuItem value={0}>Tất cả</MenuItem>
@@ -123,15 +125,17 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 						value={selectedDistrictId}
 						onChange={(event) => setSelectedDistrictId(Number(event.target.value))}
 						MenuProps={{
-							PaperProps: {
-								style: {
-									maxHeight: 200, // Giới hạn chiều cao danh sách
-									overflow: 'auto', // Thêm cuộn nếu danh sách vượt quá chiều cao
-									msOverflowStyle: 'none',
-									/* IE and Edge */
-									scrollbarWidth: 'none',
-								},
-							},
+							slotProps: {
+                                paper: {
+                                    style: {
+                                        maxHeight: 200, // Giới hạn chiều cao danh sách
+                                        overflow: 'auto', // Thêm cuộn nếu danh sách vượt quá chiều cao
+                                        msOverflowStyle: 'none',
+                                        /* IE and Edge */
+                                        scrollbarWidth: 'none',
+                                    },
+                                }
+                            },
 						}}
 					>
 						<MenuItem value={0}>Tất cả</MenuItem>
@@ -143,8 +147,8 @@ const SchoolsFilterable = (props: IAccountsFilterableProps) => {
 					</Select>
 				</FormControl>
 			</Paper>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default SchoolsFilterable;

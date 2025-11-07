@@ -95,7 +95,7 @@ const AssignCurriculumModal = ({
       <form onSubmit={formik.handleSubmit}>
         <DialogContent>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <FormControl fullWidth>
                 <InputLabel>Chọn khung chương trình</InputLabel>
                 <Select

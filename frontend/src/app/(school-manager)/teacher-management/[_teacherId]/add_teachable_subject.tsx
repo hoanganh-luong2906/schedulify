@@ -52,12 +52,14 @@ interface AddTeachableSubjectProps {
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 150,
-      scrollbars: "none",
-    },
+  slotProps: {
+    paper: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 150,
+        scrollbars: "none",
+      },
+    }
   },
 };
 
@@ -356,10 +358,10 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
 
               <AccordionDetails>
                 {/* Subject Selection */}
-                <Grid item xs={12}>
-                  <Grid item xs={12}>
+                <Grid size={12}>
+                  <Grid size={12}>
                     <Grid container spacing={2} sx={{ mb: 2 }}>
-                      <Grid item xs={3}>
+                      <Grid size={3}>
                         <Typography
                           variant="body1"
                           sx={{
@@ -373,7 +375,7 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                           Môn học
                         </Typography>
                       </Grid>
-                      <Grid item xs={8}>
+                      <Grid size={8}>
                         <FormControl fullWidth>
                           <InputLabel>Tên môn học</InputLabel>
                           <Select
@@ -403,9 +405,9 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                   </Grid>
 
                   {/* Grade Levels */}
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Grid container spacing={2} sx={{ mb: 2 }}>
-                      <Grid item xs={3}>
+                      <Grid size={3}>
                         <div className="flex flex-row justify-start items-center gap-1">
                           <Typography
                             variant="body1"
@@ -432,11 +434,11 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                           </IconButton>
                         </div>
                       </Grid>
-                      <Grid item xs={9}>
+                      <Grid size={9}>
                         {gradeFields.map((field, gradeIndex) => (
                           <div key={field.id} className="mb-4">
                             <Grid container spacing={2}>
-                              <Grid item xs={6}>
+                              <Grid size={6}>
                                 <FormControl fullWidth>
                                   <InputLabel>Khối</InputLabel>
                                   <Select
@@ -473,7 +475,7 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                                 </FormControl>
                               </Grid>
 
-                              <Grid item xs={5}>
+                              <Grid size={5}>
                                 <FormControl fullWidth>
                                   <InputLabel>Độ phù hợp</InputLabel>
                                   <Select
@@ -523,13 +525,11 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                               </Grid>
                               {gradeIndex > 0 && (
                                 <Grid
-                                  item
-                                  xs={1}
                                   sx={{
                                     display: "flex",
                                     justifyContent: "center",
                                   }}
-                                >
+                                  size={1}>
                                   <IconButton
                                     onClick={() => {
                                       const newFields = gradeFields.filter(
@@ -566,9 +566,9 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                     </Grid>
                   </Grid>
 
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Grid container spacing={2} sx={{ mb: 2 }}>
-                      <Grid item xs={3}>
+                      <Grid size={3}>
                         <Typography
                           variant="body1"
                           sx={{
@@ -581,7 +581,7 @@ const AddTeachableSubjectModal = (props: AddTeachableSubjectProps) => {
                           Loại môn học
                         </Typography>
                       </Grid>
-                      <Grid item xs={9}>
+                      <Grid size={9}>
                         <FormControl>
                           <RadioGroup
                             row

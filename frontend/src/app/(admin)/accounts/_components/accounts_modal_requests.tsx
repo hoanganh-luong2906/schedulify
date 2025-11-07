@@ -4,7 +4,6 @@ import { Box, IconButton, Modal, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { ACCOUNT_STATUS } from '../../_utils/constants';
 import AccountConfirmModal from './accounts_modal_confirm';
-import zIndex from '@mui/material/styles/zIndex';
 import AccountRejectModal from './accounts_modal_reject';
 import { IAccountResponse } from '../_libs/constants';
 

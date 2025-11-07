@@ -195,7 +195,7 @@ const PublishTimetableDetailsModal = (props: IPublishTimetableDetailsModalProps)
 	};
 
 	return (
-		<Modal
+        <Modal
 			disableEnforceFocus
 			disableAutoFocus
 			disableRestoreFocus
@@ -204,7 +204,7 @@ const PublishTimetableDetailsModal = (props: IPublishTimetableDetailsModalProps)
 			aria-labelledby='keep-mounted-modal-title'
 			aria-describedby='keep-mounted-modal-description'
 		>
-			<Box sx={style}>
+            <Box sx={style}>
 				<div
 					id='modal-header'
 					className='w-full h-fit flex flex-row justify-between items-center p-2 pl-5'
@@ -254,7 +254,9 @@ const PublishTimetableDetailsModal = (props: IPublishTimetableDetailsModalProps)
 						</p>
 					)}
 					{/* Dropdown chọn Room */}
-					<Box mt={3}>
+					<Box sx={{
+                        mt: 3
+                    }}>
 						<FormControl fullWidth>
 							<InputLabel>Tên phòng</InputLabel>
 							<Select
@@ -277,7 +279,9 @@ const PublishTimetableDetailsModal = (props: IPublishTimetableDetailsModalProps)
 					</Box>
 
 					{/* Dropdown chọn Teacher */}
-					<Box mt={3}>
+					<Box sx={{
+                        mt: 3
+                    }}>
 						<FormControl fullWidth>
 							<InputLabel>Tên giáo viên</InputLabel>
 							<Select
@@ -321,8 +325,8 @@ const PublishTimetableDetailsModal = (props: IPublishTimetableDetailsModalProps)
 					handleApprove={handleApplyChanges}
 				/>
 			</Box>
-		</Modal>
-	);
+        </Modal>
+    );
 };
 
 export default PublishTimetableDetailsModal;

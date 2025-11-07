@@ -43,12 +43,14 @@ interface UpdateRoomFormProps {
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-      scrollbars: "none",
-    },
+  slotProps: {
+    paper: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+        scrollbars: "none",
+      },
+    }
   },
 };
 
@@ -210,18 +212,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
       <form onSubmit={formik.handleSubmit}>
         <DialogContent>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tên phòng học
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -238,18 +236,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Mã phòng học
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -271,18 +265,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tòa nhà
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl
                     fullWidth
                     error={
@@ -297,11 +287,13 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       MenuProps={{
-                        PaperProps: {
-                          style: {
-                            maxHeight: 150,
-                            overflow: "auto",
-                          },
+                        slotProps: {
+                          paper: {
+                            style: {
+                              maxHeight: 150,
+                              overflow: "auto",
+                            },
+                          }
                         },
                       }}
                     >
@@ -323,18 +315,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
             </Grid>
 
             {formik.values["room-type"] === "PRACTICE_ROOM" && (
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Grid container spacing={2}>
-                  <Grid
-                    item
-                    xs={3}
-                    sx={{ display: "flex", alignItems: "center" }}
-                  >
+                  <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                     <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                       Môn học
                     </Typography>
                   </Grid>
-                  <Grid item xs={9}>
+                  <Grid size={9}>
                     <FormControl fullWidth>
                       <Select
                         variant="standard"
@@ -344,11 +332,13 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         MenuProps={{
-                          PaperProps: {
-                            style: {
-                              maxHeight: 150,
-                              overflow: "auto",
-                            },
+                          slotProps: {
+                            paper: {
+                              style: {
+                                maxHeight: 150,
+                                overflow: "auto",
+                              },
+                            }
                           },
                         }}
                       >
@@ -364,18 +354,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
               </Grid>
             )}
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Số lượng lớp
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -398,18 +384,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Loại phòng
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl
                     fullWidth
                     error={
@@ -442,18 +424,14 @@ const UpdateRoomModal = (props: UpdateRoomFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Trạng thái
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl fullWidth>
                     <Select
                       variant="standard"

@@ -54,12 +54,14 @@ interface AddCombineClassFormProps {
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-      scrollbars: "none",
-    },
+  slotProps: {
+    paper: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+        scrollbars: "none",
+      },
+    }
   },
 };
 
@@ -251,25 +253,21 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
       <form onSubmit={formik.handleSubmit}>
         <DialogContent>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                 Lọc danh sách
               </Typography>
               <Divider sx={{ mt: 2 }} />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Môn học
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl variant="standard" fullWidth>
                     <Select
                       name="subject-id"
@@ -298,18 +296,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Khối lớp
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl variant="standard" fullWidth>
                     <Select
                       name="grade"
@@ -337,18 +331,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Học kỳ
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl variant="standard" fullWidth>
                     <Select
                       name="term-id"
@@ -376,18 +366,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Buổi học
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl variant="standard" fullWidth>
                     <Select
                       name="session"
@@ -414,18 +400,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Lớp học
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl
                     variant="standard"
                     fullWidth
@@ -475,18 +457,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Giáo viên
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl variant="standard" fullWidth>
                     <Select
                       name="teacher-id"
@@ -522,18 +500,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
 
             {/* add new combine class */}
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Phòng học
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <FormControl variant="standard" fullWidth>
                     <Select
                       name="room-id"
@@ -561,18 +535,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Mã lớp ghép
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth
@@ -595,18 +565,14 @@ const AddCombineClassModal = (props: AddCombineClassFormProps) => {
               </Grid>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{ display: "flex", alignItems: "center" }}
-                >
+                <Grid sx={{ display: "flex", alignItems: "center" }} size={3}>
                   <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                     Tên lớp ghép
                   </Typography>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid size={9}>
                   <TextField
                     variant="standard"
                     fullWidth

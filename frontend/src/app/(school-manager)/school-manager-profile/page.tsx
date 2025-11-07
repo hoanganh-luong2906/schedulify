@@ -74,7 +74,11 @@ export default function ProfilePage() {
             <div className="w-full p-7 flex justify-center">
               {accountData && (
                 <Grid container spacing={2} className="!flex justify-center">
-                  <Grid item xs={12} md={5}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      md: 5
+                    }}>
                     <Card className="!w-full !shadow-md !border !border-gray-200 !rounded-lg">
                       <CardContent>
                         <div className="flex items-center mb-6 justify-between w-full">
@@ -137,7 +141,7 @@ export default function ProfilePage() {
 
                         {/* Personal Information Section */}
                         <Grid container spacing={2}>
-                          <Grid item xs={12}>
+                          <Grid size={12}>
                             <Typography
                               variant="body2"
                               className="!text-gray-600 !mb-4"
@@ -149,7 +153,7 @@ export default function ProfilePage() {
                               {accountData["last-name"]}
                             </Typography>
                           </Grid>
-                          <Grid item xs={6}>
+                          <Grid size={6}>
                             <Typography
                               variant="body2"
                               className="!text-gray-600 !mb-4"
@@ -164,7 +168,7 @@ export default function ProfilePage() {
                                 .join(", ")}
                             </Typography>
                           </Grid>
-                          <Grid item xs={6}>
+                          <Grid size={6}>
                             <Typography
                               variant="body2"
                               className="!text-gray-600 !mb-4"
@@ -175,7 +179,7 @@ export default function ProfilePage() {
                               {ACCOUNT_STATUS[accountData["status"]]}
                             </Typography>
                           </Grid>
-                          <Grid item xs={6}>
+                          <Grid size={6}>
                             <Typography
                               variant="body2"
                               className="!text-gray-600 !mb-4"
@@ -184,7 +188,7 @@ export default function ProfilePage() {
                               {accountData.email}
                             </Typography>
                           </Grid>
-                          <Grid item xs={6}>
+                          <Grid size={6}>
                             <Typography
                               variant="body2"
                               className="!text-gray-500 !mb-4"

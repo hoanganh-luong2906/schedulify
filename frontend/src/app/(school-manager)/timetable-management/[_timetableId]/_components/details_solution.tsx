@@ -76,8 +76,8 @@ const DetailsSolution: React.FC<IDetailsSolutionProps> = (props) => {
 	}, [teacherData, selectedSchoolYearId]);
 
 	return (
-		<div className='w-full h-fit flex flex-col justify-center items-center px-[2vw] pt-[3vh]'>
-			<div className='w-full mb-4 flex justify-between items-center'>
+        <div className='w-full h-fit flex flex-col justify-center items-center px-[2vw] pt-[3vh]'>
+            <div className='w-full mb-4 flex justify-between items-center'>
 				<FormControl sx={{ minWidth: 170 }}>
 					<InputLabel>Giáo viên</InputLabel>
 					<Select
@@ -85,12 +85,14 @@ const DetailsSolution: React.FC<IDetailsSolutionProps> = (props) => {
 						label='Giáo viên'
 						onChange={(e) => setSelectedTeacher(e.target.value)}
 						MenuProps={{
-							PaperProps: {
-								style: {
-									maxHeight: 200,
-									width: 250,
-								},
-							},
+							slotProps: {
+                                paper: {
+                                    style: {
+                                        maxHeight: 200,
+                                        width: 250,
+                                    },
+                                }
+                            },
 						}}
 					>
 						<MenuItem value='all'>Tất cả</MenuItem>
@@ -131,7 +133,7 @@ const DetailsSolution: React.FC<IDetailsSolutionProps> = (props) => {
 				</div>
 			</div>
 
-			<div className='w-full h-[90vh] flex flex-col justify-start items-center pb-[2vh]'>
+            <div className='w-full h-[90vh] flex flex-col justify-start items-center pb-[2vh]'>
 				<TableContainer sx={{ mb: 10, maxHeight: '100%' }} className='!no-scrollbar'>
 					<Table size='small' stickyHeader sx={{ position: 'relative' }}>
 						<TableHead
@@ -281,8 +283,8 @@ const DetailsSolution: React.FC<IDetailsSolutionProps> = (props) => {
 					setOpen={setIsDuplicateModalOpen}
 				/>
 			</div>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default DetailsSolution;
