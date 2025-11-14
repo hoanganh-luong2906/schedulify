@@ -140,6 +140,7 @@ const AssignClassModal = ({ open, onClose, classGroupId, mutate, grade }: Assign
                   }}
                 />
                 <Grid container spacing={2} sx={{
+                  width: "100%",
                   alignItems: "center"
                 }}>
                   <Grid size={3}>

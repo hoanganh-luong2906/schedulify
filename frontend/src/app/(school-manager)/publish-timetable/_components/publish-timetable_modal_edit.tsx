@@ -292,7 +292,7 @@ const PublishTimetableEditModal = (props: IPublishTimetableEditModalProps) => {
 								textField: {
 									variant: 'outlined',
 									sx: {
-										'& .MuiOutlinedInput-root': {
+										'& .MuiPickersOutlinedInput-root': {
 											height: 45,
 										},
 									},

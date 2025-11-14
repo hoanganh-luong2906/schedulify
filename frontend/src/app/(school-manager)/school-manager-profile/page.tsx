@@ -73,7 +73,7 @@ export default function ProfilePage() {
             />
             <div className="w-full p-7 flex justify-center">
               {accountData && (
-                <Grid container spacing={2} className="flex! justify-center">
+                <Grid container spacing={2} className="w-full flex! justify-center">
                   <Grid
                     size={{
                       xs: 12,
