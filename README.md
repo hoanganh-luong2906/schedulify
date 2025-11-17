@@ -7,7 +7,17 @@ Monorepo for the Schedulify system.
 | `frontend/` | Web client | Next.js 14, pnpm |
 | `backend/`  | API server | .NET 8, PostgreSQL, Docker |
 
-## Frontend
+## Run everything with Docker
+
+```bash
+cp .env.example .env                 # fill in POSTGRES_PASSWORD, JWT_SECRET_KEY, etc.
+docker compose up --build -d         # db :5432, backend :8080, frontend :3000
+docker compose run --rm migrate      # first run / after new migrations: apply EF Core migrations
+```
+
+Swagger: http://localhost:8080/swagger. `NEXT_PUBLIC_*` values are baked in at build time, so re-run `docker compose build frontend` after changing them.
+
+## Frontend only (hot reload)
 
 ```bash
 cd frontend
@@ -16,12 +26,11 @@ pnpm install
 pnpm dev
 ```
 
-## Backend
+Point `NEXT_PUBLIC_API_URL` at the backend (`http://localhost:8080` when running via compose).
 
-```bash
-cd backend
-docker compose up --build -d   # needs POSTGRES_PASSWORD, MAIL_PASSWORD, SECRET_KEY in env
-```
+## Backend only
+
+Needs the .NET 8 SDK, or use the compose `backend` + `db` services above.
 
 ## CI/CD
 

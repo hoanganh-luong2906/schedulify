@@ -1,0 +1,72 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: schedulifyDB
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d schedulifyDB"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: SchedulifySystem.API/Dockerfile
+    environment: &backend-env
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__SchedulifyPostgres: Host=db;Port=5432;Database=schedulifyDB;Username=postgres;Password=${POSTGRES_PASSWORD}
+      JWT__SecretKey: ${JWT_SECRET_KEY:?set JWT_SECRET_KEY in .env}
+      JWT__ValidIssuer: ${JWT_VALID_ISSUER:-http://localhost:8080/}
+      JWT__ValidAudience: ${JWT_VALID_AUDIENCE:-SchedulifyServer}
+      JWT__TokenValidityInMinutes: "10"
+      JWT__RefreshTokenValidityInDays: "7"
+      MailSettings__Mail: ${MAIL_ADDRESS:-}
+      MailSettings__DisplayName: Schedulify Service
+      MailSettings__Password: ${MAIL_PASSWORD:-}
+      MailSettings__Host: smtp.gmail.com
+      MailSettings__Port: "587"
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # One-off: applies EF Core migrations. Run with `docker compose run --rm migrate`
+  migrate:
+    build:
+      context: ./backend
+      dockerfile: SchedulifySystem.API/Dockerfile
+      target: migrate
+    environment: *backend-env
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles: ["tools"]
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8080}
+        NEXT_PUBLIC_NEXT_SERVER_URL: ${NEXT_PUBLIC_NEXT_SERVER_URL:-http://localhost:3000}
+        NEXT_PUBLIC_FIREBASE_API_KEY: ${NEXT_PUBLIC_FIREBASE_API_KEY:-}
+        NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:-}
+        NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${NEXT_PUBLIC_FIREBASE_PROJECT_ID:-}
+        NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET:-}
+        NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:-}
+        NEXT_PUBLIC_FIREBASE_APP_ID: ${NEXT_PUBLIC_FIREBASE_APP_ID:-}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

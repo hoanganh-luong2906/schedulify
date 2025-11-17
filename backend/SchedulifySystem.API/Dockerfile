@@ -25,6 +25,13 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./SchedulifySystem.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+# One-off EF Core migration runner (docker compose run --rm migrate); not the default target
+FROM build AS migrate
+ENV PATH="$PATH:/root/.dotnet/tools"
+RUN dotnet tool install --global dotnet-ef --version 8.*
+WORKDIR /src
+ENTRYPOINT ["dotnet", "ef", "database", "update", "--project", "SchedulifySystem.Repository", "--startup-project", "SchedulifySystem.API"]
+
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
