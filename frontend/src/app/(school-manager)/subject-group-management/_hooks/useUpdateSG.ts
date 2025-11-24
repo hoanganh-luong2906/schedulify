@@ -15,7 +15,7 @@ const useUpdateSubjectGroup = async (props: IUpdateSubjectProps) => {
 	const endpoint = getUpdateSubjectGroupApi({ subjectGroupId });
 	let response;
 
-	async function updateSubject(url: string) {
+	async function updateSubjectGroup(url: string) {
 		const response = await fetch(url, {
 			headers: {
 				Authorization: `Bearer ${sessionToken}`,
@@ -37,7 +37,7 @@ const useUpdateSubjectGroup = async (props: IUpdateSubjectProps) => {
 
 	try {
 		// Sử dụng mutate với POST request
-		response = await mutate(endpoint, updateSubject(endpoint), {
+		response = await mutate(endpoint, updateSubjectGroup(endpoint), {
 			revalidate: true,
 		});
 		useNotify({
