@@ -25,7 +25,7 @@ const LandingSchools = () => {
 			/>
 			<div className='mx-[10vw] h-full py-[3vh] flex flex-col md:flex-row justify-between items-center'>
 				<div className='w-full md:w-[30%] h-full py-[5vh] flex flex-col justify-start items-start'>
-					<h4 className='text-[2rem] md:text-title-small font-semibold opacity-70 mb-[1vh] md:mb-[5vh]'>
+					<h4 className='text-[2rem] md:text-title-small font-semibold md:font-normal opacity-70 mb-[1vh] md:mb-[5vh]'>
 						Đối tác của chúng tôi
 					</h4>
 					<h1 className='text-[1.7rem] md:text-title-1_5xl'>Những trường học</h1>

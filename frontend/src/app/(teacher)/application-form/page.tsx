@@ -178,7 +178,7 @@ export default function ApplicationFormPage() {
       </TeacherHeader>
 
       <div className="w-full max-w-2xl mx-auto p-8">
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="[&>:not([hidden])~:not([hidden])]:mt-6">
           <FormControl fullWidth>
             <InputLabel>Chọn loại đơn</InputLabel>
             <Select

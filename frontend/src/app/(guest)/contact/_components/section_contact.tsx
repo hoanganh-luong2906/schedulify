@@ -18,7 +18,7 @@ const ContactSection = () => {
 							Để lại thông tin liên hệ
 						</Typography>
 
-						<form className='space-y-6'>
+						<form className='[&>:not([hidden])~:not([hidden])]:mt-6'>
 							<Box
                                 sx={{
                                     display: 'flex',
