@@ -590,7 +590,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("OTP");
+                    b.ToTable("OTPs");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Province", b =>
