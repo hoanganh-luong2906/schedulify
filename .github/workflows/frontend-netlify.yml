@@ -1,0 +1,19 @@
+name: Frontend Netlify Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/frontend-netlify.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Checkout
+        uses: actions/checkout@v4
+
+      - name: 'Deployed site'
+        run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
