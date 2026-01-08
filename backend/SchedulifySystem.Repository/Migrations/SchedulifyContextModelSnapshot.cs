@@ -1029,9 +1029,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("SchoolYearId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -1421,7 +1418,10 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("StudentClassId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TeachableSubjectId")
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("integer");
 
                     b.Property<int>("TermId")
@@ -1434,7 +1434,9 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("StudentClassId");
 
-                    b.HasIndex("TeachableSubjectId");
+                    b.HasIndex("SubjectId");
+
+                    b.HasIndex("TeacherId");
 
                     b.HasIndex("TermId");
 
@@ -2127,11 +2129,16 @@ namespace SchedulifySystem.Repository.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SchedulifySystem.Repository.EntityModels.TeachableSubject", "TeachableSubject")
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.Subject", "Subject")
                         .WithMany("TeacherAssignments")
-                        .HasForeignKey("TeachableSubjectId")
+                        .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.Teacher", "Teacher")
+                        .WithMany("TeacherAssignments")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Term", "Term")
                         .WithMany("TeacherAssignments")
@@ -2141,7 +2148,9 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Navigation("StudentClass");
 
-                    b.Navigation("TeachableSubject");
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
 
                     b.Navigation("Term");
                 });
@@ -2369,6 +2378,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("SubjectInGroups");
 
                     b.Navigation("TeachableSubjects");
+
+                    b.Navigation("TeacherAssignments");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectGroup", b =>
@@ -2380,11 +2391,6 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("SubjectInGroups");
                 });
 
-            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeachableSubject", b =>
-                {
-                    b.Navigation("TeacherAssignments");
-                });
-
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Teacher", b =>
                 {
                     b.Navigation("ClassPeriods");
@@ -2394,6 +2400,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("SubmitRequests");
 
                     b.Navigation("TeachableSubjects");
+
+                    b.Navigation("TeacherAssignments");
 
                     b.Navigation("TeacherConfigs");
 
