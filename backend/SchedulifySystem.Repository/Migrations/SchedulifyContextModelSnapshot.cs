@@ -527,8 +527,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Message")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(350)
+                        .HasColumnType("character varying(350)");
 
                     b.Property<string>("NotificationURL")
                         .HasColumnType("text");
@@ -537,8 +537,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Title")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");
@@ -1208,13 +1208,16 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("IsProcess")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("ProcessNote")
                         .HasColumnType("text");
 
                     b.Property<string>("RequestDescription")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("RequestTime")
+                    b.Property<DateTime?>("RequestTime")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("RequestType")
