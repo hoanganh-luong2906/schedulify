@@ -589,6 +589,39 @@ namespace SchedulifySystem.Repository.Migrations
                     b.ToTable("OTPs");
                 });
 
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.PeriodChange", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClassPeriodId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("StartAt")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Week")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassPeriodId");
+
+                    b.ToTable("PeriodChange");
+                });
+
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Province", b =>
                 {
                     b.Property<int>("Id")
@@ -1496,6 +1529,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("EndWeek")
                         .HasColumnType("integer");
 
@@ -1509,6 +1545,9 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Property<int>("SchoolYearId")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("StartWeek")
                         .HasColumnType("integer");
@@ -1738,6 +1777,17 @@ namespace SchedulifySystem.Repository.Migrations
                         .IsRequired();
 
                     b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.PeriodChange", b =>
+                {
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.ClassPeriod", "ClassPeriod")
+                        .WithMany("PeriodChanges")
+                        .HasForeignKey("ClassPeriodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClassPeriod");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.RoleAssignment", b =>
@@ -2159,6 +2209,11 @@ namespace SchedulifySystem.Repository.Migrations
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Building", b =>
                 {
                     b.Navigation("Rooms");
+                });
+
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.ClassPeriod", b =>
+                {
+                    b.Navigation("PeriodChanges");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.ClassSchedule", b =>
