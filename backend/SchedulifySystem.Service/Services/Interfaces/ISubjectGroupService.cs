@@ -1,4 +1,5 @@
-﻿using SchedulifySystem.Service.ViewModels.ResponseModels;
+﻿using SchedulifySystem.Service.BusinessModels.SubjectGroupBusinessModels;
+using SchedulifySystem.Service.ViewModels.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace SchedulifySystem.Service.Services.Interfaces
 {
     public interface ISubjectGroupService
     {
-        Task<BaseResponseModel> CreateSubjectGroupList();
+        Task<BaseResponseModel> CreateSubjectGroupList(int schoolId , SubjectGroupAddModel subjectGroupAddModel);
     }
 }
