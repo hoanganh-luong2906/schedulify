@@ -1035,6 +1035,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int?>("SlotSpecialized")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("SubjectGroupType")
+                        .HasColumnType("integer");
+
                     b.Property<string>("SubjectName")
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
@@ -1132,12 +1135,17 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int?>("SchoolId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("SchoolYearId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SchoolId");
+
+                    b.HasIndex("SchoolYearId");
 
                     b.ToTable("SubjectGroups");
                 });
@@ -1177,7 +1185,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("SubjectId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TermId")
+                    b.Property<int?>("TermId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -1935,7 +1943,13 @@ namespace SchedulifySystem.Repository.Migrations
                         .WithMany("SubjectGroups")
                         .HasForeignKey("SchoolId");
 
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.SchoolYear", "SchoolYear")
+                        .WithMany("SubjectGroups")
+                        .HasForeignKey("SchoolYearId");
+
                     b.Navigation("School");
+
+                    b.Navigation("SchoolYear");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectInGroup", b =>
@@ -1954,9 +1968,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasOne("SchedulifySystem.Repository.EntityModels.Term", "Term")
                         .WithMany("SubjectInGroups")
-                        .HasForeignKey("TermId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TermId");
 
                     b.Navigation("Subject");
 
@@ -2232,6 +2244,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("SchoolSchedules");
 
                     b.Navigation("StudentClasses");
+
+                    b.Navigation("SubjectGroups");
 
                     b.Navigation("Terms");
                 });
