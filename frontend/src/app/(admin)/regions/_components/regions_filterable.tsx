@@ -1,5 +1,5 @@
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutlined';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutlined';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
 import {
 	Box,
 	Button,
@@ -14,7 +14,8 @@ import {
 	Typography,
 } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
+import NodeRefTransition from '@/commons/node_ref_transition';
 import { IDistrictResponse, IProvinceResponse } from '../_libs/constants';
 import styles from '../_styles/table_styles.module.css';
 import RegionsConfirmationModal from './regions_modal_apply_confirm';
@@ -400,7 +401,7 @@ const RegionsFilterable = (props: IAccountsFilterableProps) => {
 					<div className='w-[70%] flex flex-col-reverse justify-end items-center'>
 						<TransitionGroup component={null}>
 							{districtNames.map((district: IEditingDistrict, index) => (
-								<CSSTransition
+								<NodeRefTransition
 									key={index}
 									timeout={200}
 									classNames={{
@@ -444,7 +445,7 @@ const RegionsFilterable = (props: IAccountsFilterableProps) => {
 											<RemoveCircleOutlineIcon />
 										</IconButton>
 									</Box>
-								</CSSTransition>
+								</NodeRefTransition>
 							))}
 						</TransitionGroup>
 					</div>

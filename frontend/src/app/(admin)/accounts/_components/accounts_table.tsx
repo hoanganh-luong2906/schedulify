@@ -21,7 +21,8 @@ import {
 	Tooltip,
 } from '@mui/material';
 import { ChangeEvent, Dispatch, SetStateAction, useMemo, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
+import NodeRefTransition from '@/commons/node_ref_transition';
 import { KeyedMutator } from 'swr';
 import { ACCOUNT_STATUS } from '../../_utils/constants';
 import { getActiveSchoolApi, getUpdateStatusSchoolApi } from '../_libs/apis';
@@ -208,7 +209,7 @@ const AccountsTable = (props: IAccountTableProps) => {
 					<TableBody>
 						<TransitionGroup component={null}>
 							{visibleRows.map((account: IAccountResponse, index: number) => (
-								<CSSTransition
+								<NodeRefTransition
 									key={account.id}
 									timeout={500}
 									classNames={{
@@ -260,7 +261,7 @@ const AccountsTable = (props: IAccountTableProps) => {
 											)}
 										</TableCell>
 									</TableRow>
-								</CSSTransition>
+								</NodeRefTransition>
 							))}
 						</TransitionGroup>
 						{emptyRows > 0 && (

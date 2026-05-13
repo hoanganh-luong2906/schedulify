@@ -17,7 +17,8 @@ import {
 	Typography,
 } from '@mui/material';
 import { ChangeEvent, Dispatch, SetStateAction, useMemo, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
+import NodeRefTransition from '@/commons/node_ref_transition';
 import { KeyedMutator } from 'swr';
 import { SCHOOL_STATUS } from '../../_utils/constants';
 import { ISchoolResponse } from '../_libs/constants';
@@ -110,7 +111,7 @@ const SchoolsTable = (props: IAccountTableProps) => {
 					<TableBody>
 						<TransitionGroup component={null}>
 							{visibleRows.map((school: ISchoolResponse, index: number) => (
-								<CSSTransition
+								<NodeRefTransition
 									key={school.id}
 									timeout={500}
 									classNames={{
@@ -155,7 +156,7 @@ const SchoolsTable = (props: IAccountTableProps) => {
 											/>
 										</TableCell>
 									</TableRow>
-								</CSSTransition>
+								</NodeRefTransition>
 							))}
 						</TransitionGroup>
 					</TableBody>

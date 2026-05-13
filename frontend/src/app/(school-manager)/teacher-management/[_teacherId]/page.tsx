@@ -91,7 +91,7 @@ export default function TeacherDetails() {
                   mutate={mutate}
                 />
                 {teacherData && (
-                  <Grid container spacing={2} className="flex! justify-center">
+                  <Grid container spacing={2} className="w-full flex! justify-center">
                     <Grid
                       size={{
                         xs: 12,

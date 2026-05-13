@@ -24,7 +24,8 @@ import {
 	Typography,
 } from '@mui/material';
 import { ChangeEvent, Dispatch, SetStateAction, useMemo, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup } from 'react-transition-group';
+import NodeRefTransition from '@/commons/node_ref_transition';
 import styles from '../_styles/table_styles.module.css';
 import { getUpdateSchoolYearStatusApi } from '../_libs/apis';
 import { useAppContext } from '@/context/app_provider';
@@ -174,7 +175,7 @@ const SchoolYearTable = (props: ISchoolYearTableProps) => {
 					<TableBody>
 						<TransitionGroup component={null}>
 							{visibleRows.map((school: ISchoolYearResponse, index: number) => (
-								<CSSTransition
+								<NodeRefTransition
 									key={school.id}
 									timeout={500}
 									classNames={{
@@ -273,7 +274,7 @@ const SchoolYearTable = (props: ISchoolYearTableProps) => {
 											</Menu>
 										</TableCell>
 									</TableRow>
-								</CSSTransition>
+								</NodeRefTransition>
 							))}
 						</TransitionGroup>
 					</TableBody>
