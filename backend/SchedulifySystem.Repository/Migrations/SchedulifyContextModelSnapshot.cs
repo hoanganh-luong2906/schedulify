@@ -30,9 +30,6 @@ namespace SchedulifySystem.Repository.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AccessToken")
-                        .HasColumnType("text");
-
                     b.Property<string>("AvatarURL")
                         .HasColumnType("text");
 
@@ -590,14 +587,15 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Role", (string)null);
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.RoleAssignment", b =>
