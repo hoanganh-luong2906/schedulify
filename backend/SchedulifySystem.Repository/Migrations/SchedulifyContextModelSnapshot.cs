@@ -311,7 +311,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("ConfigGroupId");
 
-                    b.ToTable("ConfigAttributes", (string)null);
+                    b.ToTable("ConfigAttributes");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.ConfigGroup", b =>
@@ -392,7 +392,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SubjectGroupId");
 
-                    b.ToTable("Curriculums", (string)null);
+                    b.ToTable("Curriculums");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Department", b =>
@@ -426,7 +426,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.District", b =>
@@ -458,7 +458,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("ProvinceId");
 
-                    b.ToTable("Districts", (string)null);
+                    b.ToTable("Districts");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Holiday", b =>
@@ -498,7 +498,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Holidays", (string)null);
+                    b.ToTable("Holidays");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Notification", b =>
@@ -584,7 +584,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("OTP", (string)null);
+                    b.ToTable("OTP");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Province", b =>
@@ -611,7 +611,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Provinces", (string)null);
+                    b.ToTable("Provinces");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Role", b =>
@@ -717,7 +717,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("RoomTypeId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.RoomType", b =>
@@ -748,7 +748,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("RoomTypes", (string)null);
+                    b.ToTable("RoomTypes");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.ScheduleConfig", b =>
@@ -783,7 +783,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolScheduleId");
 
-                    b.ToTable("ScheduleConfigs", (string)null);
+                    b.ToTable("ScheduleConfigs");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.School", b =>
@@ -821,7 +821,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("DistrictId");
 
-                    b.ToTable("Schools", (string)null);
+                    b.ToTable("Schools");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SchoolSchedule", b =>
@@ -884,7 +884,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TermId");
 
-                    b.ToTable("SchoolSchedules", (string)null);
+                    b.ToTable("SchoolSchedules");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SchoolYear", b =>
@@ -915,7 +915,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SchoolYears", (string)null);
+                    b.ToTable("SchoolYears");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.StudentClass", b =>
@@ -962,7 +962,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolYearId");
 
-                    b.ToTable("StudentClasses", (string)null);
+                    b.ToTable("StudentClasses");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.StudentClassInGroup", b =>
@@ -994,7 +994,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("StudentClassId");
 
-                    b.ToTable("StudentClassInGroups", (string)null);
+                    b.ToTable("StudentClassInGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Subject", b =>
@@ -1036,7 +1036,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectConfig", b =>
@@ -1089,7 +1089,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("SubjectConfigs", (string)null);
+                    b.ToTable("SubjectConfigs");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectGroup", b =>
@@ -1131,7 +1131,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SubjectGroupTypeId");
 
-                    b.ToTable("SubjectGroups", (string)null);
+                    b.ToTable("SubjectGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectGroupType", b =>
@@ -1162,7 +1162,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SubjectGroupType", (string)null);
+                    b.ToTable("SubjectGroupType");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectInGroup", b =>
@@ -1205,7 +1205,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TermId");
 
-                    b.ToTable("SubjectInGroups", (string)null);
+                    b.ToTable("SubjectInGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubmitRequest", b =>
@@ -1247,7 +1247,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("SubmitsRequests", (string)null);
+                    b.ToTable("SubmitsRequests");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeachableSubject", b =>
@@ -1279,7 +1279,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("TeachableSubjects", (string)null);
+                    b.ToTable("TeachableSubjects");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Teacher", b =>
@@ -1346,7 +1346,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TeacherGroupId");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeacherAssignment", b =>
@@ -1381,7 +1381,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TeachableSubjectId");
 
-                    b.ToTable("TeacherAssignments", (string)null);
+                    b.ToTable("TeacherAssignments");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeacherConfig", b =>
@@ -1421,7 +1421,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("TeacherConfigs", (string)null);
+                    b.ToTable("TeacherConfigs");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeacherGroup", b =>
@@ -1455,7 +1455,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("TeacherGroups", (string)null);
+                    b.ToTable("TeacherGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeacherUnavailability", b =>
@@ -1494,7 +1494,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("TeacherUnavailabilities", (string)null);
+                    b.ToTable("TeacherUnavailabilities");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Term", b =>
@@ -1537,7 +1537,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolYearId");
 
-                    b.ToTable("Terms", (string)null);
+                    b.ToTable("Terms");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TimeSlot", b =>
@@ -1575,7 +1575,7 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("TimeSlots", (string)null);
+                    b.ToTable("TimeSlots");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Account", b =>
@@ -1947,7 +1947,7 @@ namespace SchedulifySystem.Repository.Migrations
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Subject", b =>
                 {
                     b.HasOne("SchedulifySystem.Repository.EntityModels.School", "School")
-                        .WithMany("Subjects")
+                        .WithMany("Subject")
                         .HasForeignKey("SchoolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -2296,9 +2296,9 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Navigation("StudentClasses");
 
-                    b.Navigation("SubjectGroups");
+                    b.Navigation("Subject");
 
-                    b.Navigation("Subjects");
+                    b.Navigation("SubjectGroups");
 
                     b.Navigation("TeacherGroups");
 
