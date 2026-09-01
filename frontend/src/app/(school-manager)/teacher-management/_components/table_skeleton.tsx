@@ -16,7 +16,7 @@ import {
   Toolbar,
   Tooltip,
 } from "@mui/material";
-import { ITeacherTableData } from "../_libs/contants";
+import { ITeacherTableData } from "../_libs/constants";
 import { visuallyHidden } from "@mui/utils";
 import AddIcon from "@mui/icons-material/Add";
 import FilterListIcon from "@mui/icons-material/FilterList";
