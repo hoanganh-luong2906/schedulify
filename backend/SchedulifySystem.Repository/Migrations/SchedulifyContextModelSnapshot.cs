@@ -377,6 +377,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("SchoolYearId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("SubjectGroupId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -387,6 +390,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.HasIndex("SchoolId");
 
                     b.HasIndex("SchoolYearId");
+
+                    b.HasIndex("SubjectGroupId");
 
                     b.ToTable("Curriculums");
                 });
@@ -979,6 +984,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsRequired")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("SchoolId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("SubjectName")
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
@@ -987,6 +995,8 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SchoolId");
 
                     b.ToTable("Subjects");
                 });
@@ -1068,7 +1078,7 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<int>("SchoolId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SubjectGroupType")
+                    b.Property<int>("SubjectGroupTypeId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -1078,7 +1088,37 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.HasIndex("SchoolId");
 
+                    b.HasIndex("SubjectGroupTypeId");
+
                     b.ToTable("SubjectGroups");
+                });
+
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectGroupType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("DefaultSlotPerTerm")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SubjectGroupType");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectInGroup", b =>
@@ -1095,6 +1135,9 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
+                    b.Property<int>("SlotPerTerm")
+                        .HasColumnType("integer");
+
                     b.Property<int>("SlotPerWeek")
                         .HasColumnType("integer");
 
@@ -1102,6 +1145,9 @@ namespace SchedulifySystem.Repository.Migrations
                         .HasColumnType("integer");
 
                     b.Property<int>("SubjectId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TermId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdateDate")
@@ -1112,6 +1158,8 @@ namespace SchedulifySystem.Repository.Migrations
                     b.HasIndex("SubjectGroupId");
 
                     b.HasIndex("SubjectId");
+
+                    b.HasIndex("TermId");
 
                     b.ToTable("SubjectInGroups");
                 });
@@ -1617,11 +1665,19 @@ namespace SchedulifySystem.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.SubjectGroup", "SubjectGroup")
+                        .WithMany("Curriculums")
+                        .HasForeignKey("SubjectGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("ClassGroup");
 
                     b.Navigation("School");
 
                     b.Navigation("SchoolYear");
+
+                    b.Navigation("SubjectGroup");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Department", b =>
@@ -1830,6 +1886,17 @@ namespace SchedulifySystem.Repository.Migrations
                     b.Navigation("StudentClass");
                 });
 
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Subject", b =>
+                {
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.School", "School")
+                        .WithMany("Subjects")
+                        .HasForeignKey("SchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("School");
+                });
+
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectConfig", b =>
                 {
                     b.HasOne("SchedulifySystem.Repository.EntityModels.ConfigAttribute", "ConfigAttribute")
@@ -1881,7 +1948,15 @@ namespace SchedulifySystem.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.SubjectGroupType", "SubjectGroupType")
+                        .WithMany("subjectGroups")
+                        .HasForeignKey("SubjectGroupTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("School");
+
+                    b.Navigation("SubjectGroupType");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectInGroup", b =>
@@ -1898,9 +1973,17 @@ namespace SchedulifySystem.Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchedulifySystem.Repository.EntityModels.Term", "Term")
+                        .WithMany("SubjectInGroups")
+                        .HasForeignKey("TermId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Subject");
 
                     b.Navigation("SubjectGroup");
+
+                    b.Navigation("Term");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubmitRequest", b =>
@@ -2155,6 +2238,8 @@ namespace SchedulifySystem.Repository.Migrations
 
                     b.Navigation("SubjectGroups");
 
+                    b.Navigation("Subjects");
+
                     b.Navigation("TeacherGroups");
 
                     b.Navigation("Teachers");
@@ -2214,7 +2299,14 @@ namespace SchedulifySystem.Repository.Migrations
                 {
                     b.Navigation("ClassGroups");
 
+                    b.Navigation("Curriculums");
+
                     b.Navigation("SubjectInGroups");
+                });
+
+            modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.SubjectGroupType", b =>
+                {
+                    b.Navigation("subjectGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TeachableSubject", b =>
@@ -2245,6 +2337,8 @@ namespace SchedulifySystem.Repository.Migrations
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.Term", b =>
                 {
                     b.Navigation("SchoolSchedules");
+
+                    b.Navigation("SubjectInGroups");
                 });
 
             modelBuilder.Entity("SchedulifySystem.Repository.EntityModels.TimeSlot", b =>
